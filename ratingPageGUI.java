@@ -104,6 +104,7 @@ public class ratingPageGUI extends JFrame implements ActionListener{
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         container.add(labelPanel);
         container.add(clothingPanel);
+        container.add(starPanel);
 
         this.add(container);
 
