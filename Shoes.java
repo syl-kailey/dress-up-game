@@ -7,7 +7,7 @@ public class Shoes extends Clothing{
         this.hasHeel = hasHeel;
     }
 
-    public boolean hasHeel(){
+    public boolean getHasHeel(){
         return hasHeel;
     }
 
