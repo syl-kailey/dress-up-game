@@ -85,10 +85,10 @@ public class startPageGUI extends JFrame implements ActionListener{
 
     public static void main(String args[]){
 
-        startPageGUI frame = new startPageGUI();
-        frame.setTitle("Machine Dressing");
-        frame.setSize(300, 300);
-        frame.setVisible(true);
+        startPageGUI startFrame = new startPageGUI();
+        startFrame.setTitle("Machine Dressing");
+        startFrame.setSize(300, 300);
+        startFrame.setVisible(true);
     }
 
 }
