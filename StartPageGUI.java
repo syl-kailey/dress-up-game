@@ -5,7 +5,7 @@ import java.util.*;
 import java.net.*;
 import java.io.*;
 
-public class startPageGUI extends JFrame implements ActionListener{
+public class StartPageGUI extends JFrame implements ActionListener{
     Socket socket=null; 
     JTextArea instructions;
     String portStr;
@@ -16,7 +16,7 @@ public class startPageGUI extends JFrame implements ActionListener{
     BufferedReader reader;
     PrintWriter writer;
 
-    public startPageGUI(){
+    public StartPageGUI(){
 
         instructions = new JTextArea("Instructions: Connect to the network. Once both players are connected to the network, you will both be able to rate articles of clothing out of 10. Using both of your preferences, an outfit will be generated.");
         instructions.setLineWrap(true);
@@ -85,7 +85,7 @@ public class startPageGUI extends JFrame implements ActionListener{
 
     public static void main(String args[]){
 
-        startPageGUI startFrame = new startPageGUI();
+        StartPageGUI startFrame = new StartPageGUI();
         startFrame.setTitle("Machine Dressing");
         startFrame.setSize(300, 300);
         startFrame.setVisible(true);
