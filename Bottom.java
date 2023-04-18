@@ -7,7 +7,7 @@ public class Bottom extends Clothing{
         this.isPant = isPant;
     }
 
-    public boolean geIsPant(){
+    public boolean getIsPant(){
         return isPant;
     }
 
