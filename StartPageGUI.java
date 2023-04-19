@@ -4,6 +4,8 @@ import java.awt.event.*;
 import java.util.*;
 import java.net.*;
 import java.io.*;
+import javax.swing.plaf.metal.*;
+import javax.swing.plaf.metal.MetalLookAndFeel;
 
 public class StartPageGUI extends JFrame implements ActionListener{
     
@@ -23,7 +25,7 @@ public class StartPageGUI extends JFrame implements ActionListener{
         instructions.setLineWrap(true);
         instructions.setWrapStyleWord(true);
         instructions.setPreferredSize(new Dimension(250,250));
-        instructions.setForeground(Color.decode("#D49066"));
+        instructions.setForeground(Color.decode("#9C225D"));
         instructions.setOpaque(false);
         instructions.setEditable(false);
 
@@ -85,7 +87,13 @@ public class StartPageGUI extends JFrame implements ActionListener{
     }
 
     public static void main(String args[]){
-
+        try {
+            MetalLookAndFeel.setCurrentTheme(new ourTheme());
+            UIManager.setLookAndFeel(new MetalLookAndFeel());
+        }
+        catch (Exception e) {
+            System.out.println("Look and Feel not set");
+        }
         StartPageGUI startFrame = new StartPageGUI();
         startFrame.setTitle("Machine Dressing");
         startFrame.setSize(300, 300);
