@@ -6,6 +6,7 @@ import java.net.*;
 import java.io.*;
 
 public class StartPageGUI extends JFrame implements ActionListener{
+    
     Socket socket=null; 
     JTextArea instructions;
     String portStr;
