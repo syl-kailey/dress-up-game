@@ -4,8 +4,9 @@ public class Clothing {
     String pattern;
     String aesthetic;
     int outfit;
+    String imageURL;
 
-    public Clothing (String color, String pattern, String aesthetic, int outfit){
+    public Clothing (String color, String pattern, String aesthetic, int outfit, String imageURL){
         this.color = color;
         this.pattern = pattern;
         this.aesthetic = aesthetic;
@@ -26,6 +27,10 @@ public class Clothing {
 
     public int getOutfit(){
         return outfit;
+    }
+
+    public String getImageURL(){
+        return imageURL;
     }
 
 }
