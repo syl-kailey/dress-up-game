@@ -26,7 +26,8 @@ public class Server {
         // repeat for bottomsGUI and shoesGUI 
         // finally, open window with new doll 
 
-        while(clients.size() < 2) {
+        //while(clients.size() < 2) {
+        while(true) {
             try{
                 Socket clientSocket = serverSocket.accept();
                 //String username = GWackClientGUI.username; 
