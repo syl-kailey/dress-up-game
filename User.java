@@ -16,7 +16,7 @@ public class User {
         this.shoes = shoes;
     }
 
-    public List<String> preferredColors(List<Top> tops, List<Bottom> bottoms, List<Shoes> shoes){
+    public List<String> topPreferences(List<Top> tops){
         //iterate through tops, bottoms, and shoes and get the color of each. 
         //If color is already in list, don't add it.
         
