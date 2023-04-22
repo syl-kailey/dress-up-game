@@ -118,23 +118,51 @@ public class DressUpGame {
     }
 
 
-    Outfit selectOutfit(List<String> colors, List<String> patterns, List<String> aesthetics){
+    Outfit selectOutfit(){//i removed parameters because theyre already global variables
 
-        //turn colors list into strings
-        //turn patterns list into strings
-        //turn aesthetics list into strings
+
+        List<Outfit> patternOutfits = null;
+        List<Outfit> colorOutfits = null;
+        List<Outfit> aestheticOutfits = null;
 
         //if length of colors is 1
             //find outfits with that color
             //colorOutfits
+        int color = 0;
+        if (colors.size() > 1){
+            color = (int)(Math.random()*2)+1;//i think this is right, should probably double check
+        }
+        for (Outfit o: allOutfits){
+            if (o.getColor().equals(colors.get(color))){
+                colorOutfits.add(o);
+            }
+        }
 
         //else if length of patterns is 1
             //find outfits with that pattern
             //patternOutfits
+            int pattern = 0;
+            if (patterns.size() > 1){
+                pattern = (int)(Math.random()*2)+1;
+            }
+            for (Outfit o: allOutfits){
+                if (o.getPattern().equals(patterns.get(pattern))){
+                    patternOutfits.add(o);
+                }
+            }
 
         //else if length of aesthetics is 1
             //find outfits with that aesthetic
             //aestheticOutfits
+            int aesthetic = 0;
+            if (aesthetics.size() > 1){
+                aesthetic = (int)(Math.random()*2)+1;
+            }
+            for (Outfit o: allOutfits){
+                if (o.getAesthetic().equals(aesthetics.get(aesthetic))){
+                    aestheticOutfits.add(o);
+                }
+            }
         
         //else
             //randomly select color 1 or color 2
@@ -154,10 +182,30 @@ public class DressUpGame {
             //make list of those
             //if length of list is one
             //that outfit is finalOutfit
+
+        List<Outfit> potentialOutfits = null;
+        for (Outfit o : colorOutfits){
+            if (aestheticOutfits.contains(o) && patternOutfits.contains(o)){
+                finalOutfit = o;
+                return finalOutfit;
+            }else if (aestheticOutfits.contains(o) || patternOutfits.contains(o)){//compare color w/ aesthetic and pattern
+                potentialOutfits.add(o);
+            }
+        }
+        for (Outfit o : aestheticOutfits){//compare aesthetic with pattern
+            if (patternOutfits.contains(o)){
+                potentialOutfits.add(o);
+            }
+        }
         //else randomly select an outfit from the list
             //that outfit is final outfit
-
-        return finalOutfit;
+        if (potentialOutfits.size() == 0){//very unlikely,maybe impossible
+            potentialOutfits.add(colorOutfits.get(0));
+            potentialOutfits.add(patternOutfits.get(0));
+            potentialOutfits.add(aestheticOutfits.get(0));
+        }
+        finalOutfit = potentialOutfits.get((int)(Math.random()*potentialOutfits.size()));//again, should probably check my math
+        return finalOutfit ;
     }
 
 
