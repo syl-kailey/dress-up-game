@@ -1,28 +1,11 @@
 public class Clothing {
 
-    String color;
-    String pattern;
-    String aesthetic;
     int outfit;
     String imageURL;
 
-    public Clothing (String color, String pattern, String aesthetic, int outfit, String imageURL){
-        this.color = color;
-        this.pattern = pattern;
-        this.aesthetic = aesthetic;
+    public Clothing(int outfit, String imageURL){
         this.outfit = outfit;
-    }
-
-    public String getColor(){
-        return color;
-    }
-
-    public String getPattern(){
-        return pattern;
-    }
-
-    public String getAesthetic(){
-        return aesthetic;
+        this.imageURL = imageURL;
     }
 
     public int getOutfit(){
