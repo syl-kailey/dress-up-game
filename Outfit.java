@@ -7,8 +7,9 @@ public class Outfit {
     String color;
     String pattern;
     String aesthetic;
+    int label;
 
-    public Outfit(Top top, Bottom bottom, Shoes shoes, String color, String pattern, String aesthetic){
+    public Outfit(Top top, Bottom bottom, Shoes shoes, String color, String pattern, String aesthetic, int label){
         this.top = top;
         this.bottom = bottom;
         this.shoes = shoes;
@@ -29,4 +30,7 @@ public class Outfit {
         return aesthetic;
     }
     
+    public int getLabel(){
+        return label;
+    }
 }
