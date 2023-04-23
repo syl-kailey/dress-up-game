@@ -1,14 +1,9 @@
 public class Top extends Clothing{
 
-    String type;
 
-    public Top (String color, String pattern, String aesthetic, int outfit, String imageURL, String type){
-        super(color, pattern, aesthetic, outfit, imageURL);
-        this.type = type;
+    public Top(int outfit, String imageURL){
+        super(outfit, imageURL);
     }
 
-    public String getType(){
-        return type;
-    }
 
 }
