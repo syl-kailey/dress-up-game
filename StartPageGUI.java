@@ -84,6 +84,7 @@ public class StartPageGUI extends JFrame implements ActionListener{
         ClientHandler client = new ClientHandler(socket);
         client.start();
         isConnected = true;
+        this.dispose(); 
     }
 
     public static void main(String args[]){
@@ -95,6 +96,7 @@ public class StartPageGUI extends JFrame implements ActionListener{
             System.out.println("Look and Feel not set");
         }
         StartPageGUI startFrame = new StartPageGUI();
+
         startFrame.setTitle("Machine Dressing");
         startFrame.setSize(300, 300);
         startFrame.setVisible(true);
