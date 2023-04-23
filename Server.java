@@ -22,9 +22,6 @@ public class Server {
     public synchronized void serve() {
 
         // server waits for two clients to connect 
-        // then, server displays shirtsGUI to both users and waits for users to each select 3 items, then closes window
-        // repeat for bottomsGUI and shoesGUI 
-        // finally, open window with new doll 
 
         //while(clients.size() < 2) {
         while(true) {
@@ -53,6 +50,14 @@ public class Server {
 
         public synchronized void run() {
             ShirtGUI shirtGUI = new ShirtGUI();
+            shirtGUI.setVisible(true);
+
+            // server displays shirtsGUI to both users and waits for users to each select 3 items, then closes window
+
+            // repeat for bottomsGUI and shoesGUI 
+
+            // finally, open window with new doll 
+
         }
     }
 
