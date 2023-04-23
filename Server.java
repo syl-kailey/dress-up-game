@@ -47,7 +47,7 @@ public class Server {
             this.socket = socket; 
             //this.name = username; 
         }
-
+ 
         public synchronized void run() {
             ShirtGUI shirtGUI = new ShirtGUI();
             shirtGUI.setVisible(true);

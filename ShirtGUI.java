@@ -23,7 +23,7 @@ public class ShirtGUI extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 // System.out.println("test");
                 // store this 
-            }
+            } 
         });
 
         this.setSize(250,250);
