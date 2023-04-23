@@ -24,7 +24,7 @@ class ClientHandler extends Thread{
                 writer.flush();
                 sock.close();
                 return;
-            }
+            } 
 
             //close the connections
             writer.close();
