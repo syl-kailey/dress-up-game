@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.List;
 import java.awt.event.*;
 import java.util.*;
 import java.net.*;
@@ -10,20 +11,35 @@ import javax.swing.plaf.metal.MetalLookAndFeel;
 public class ShirtGUI extends JFrame {
 
     JTextArea instructions; 
-    Top sampleTop = new Top(1, "top1.png");
-    
+    Top sampleTop = new Top(1, "./allpngs/top1.png");
+    ArrayList<Top> shirtList = new ArrayList<>(); 
+
     public ShirtGUI () {
         instructions = new JTextArea ("Please select your three favorite shirts from the options below: "); 
         instructions.setEditable(false); 
 
+        /*for (Top shirt: allTops) {
+            ImageIcon shirtImage = new ImageIcon(shirt.imageURL); 
+            JLabel shirtLabel = new JLabel(shirtImage); 
+
+            shirtLabel.addMouseListener(new MouseAdapter() {
+                public void mouseClicked(MouseEvent e) {
+                    // System.out.println("test");
+                    // store this 
+                    shirtList.add(shirt)
+                    // count to 3 and close 
+                }
+            })
+        }*/
+
         ImageIcon topImage = new ImageIcon(sampleTop.imageURL);
         JLabel topLabel = new JLabel(topImage);
 
+
         topLabel.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-                // System.out.println("test");
+                System.out.println("test");
                 // store this 
-                // count to 3 and close 
             } 
         });
 
@@ -35,6 +51,13 @@ public class ShirtGUI extends JFrame {
     }
 
     public static void main (String args[]) {
+        try {
+            MetalLookAndFeel.setCurrentTheme(new ourTheme());
+            UIManager.setLookAndFeel(new MetalLookAndFeel());
+        }
+        catch (Exception e) {
+            System.out.println("Look and Feel not set");
+        }
         ShirtGUI test = new ShirtGUI(); 
         test.setVisible(true);
     }
