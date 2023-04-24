@@ -80,7 +80,7 @@ public class StartPageGUI extends JFrame implements ActionListener{
             System.err.print("Failed to connect");
             System.exit(1);
         }
-
+        
         ClientHandler client = new ClientHandler(socket);
         client.start();
         isConnected = true;
@@ -88,6 +88,7 @@ public class StartPageGUI extends JFrame implements ActionListener{
     }
 
     public static void main(String args[]){
+
         try {
             MetalLookAndFeel.setCurrentTheme(new ourTheme());
             UIManager.setLookAndFeel(new MetalLookAndFeel());
@@ -100,6 +101,7 @@ public class StartPageGUI extends JFrame implements ActionListener{
         startFrame.setTitle("Machine Dressing");
         startFrame.setSize(300, 300);
         startFrame.setVisible(true);
+
     }
 
 }

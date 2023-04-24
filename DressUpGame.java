@@ -1,5 +1,10 @@
 import java.util.*;
 import java.lang.*;
+import java.net.*;
+import java.io.*;
+import javax.swing.UIManager;
+import javax.swing.plaf.metal.*;
+import javax.swing.plaf.metal.MetalLookAndFeel;
 
 public class DressUpGame {
     User user1;
@@ -13,6 +18,9 @@ public class DressUpGame {
     Bottom[] allBottoms;
     Shoes[] allShoes;
     public Outfit[] allOutfits;
+    List<Outfit> patternOutfits;
+    List<Outfit> colorOutfits;
+    List<Outfit> aestheticOutfits;
 
     public List<String> favoriteColor(User user1, User user2){
         List<String> colors1 = user1.preferredColors();
@@ -139,11 +147,6 @@ public class DressUpGame {
 
     Outfit selectOutfit(){//i removed parameters because theyre already global variables
 
-
-        List<Outfit> patternOutfits = null;
-        List<Outfit> colorOutfits = null;
-        List<Outfit> aestheticOutfits = null;
-
         //if length of colors is 1
             //find outfits with that color
             //colorOutfits
@@ -231,6 +234,21 @@ public class DressUpGame {
 
     public static void main(String[] args) {
 
+        //run start page
+
+        try {
+            MetalLookAndFeel.setCurrentTheme(new ourTheme());
+            UIManager.setLookAndFeel(new MetalLookAndFeel());
+        }
+        catch (Exception e) {
+            System.out.println("Look and Feel not set");
+        }
+        StartPageGUI startFrame = new StartPageGUI();
+
+        startFrame.setTitle("Machine Dressing");
+        startFrame.setSize(300, 300);
+        startFrame.setVisible(true);
+        
     }
 
 }

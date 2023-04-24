@@ -103,6 +103,15 @@ public class Server {
     public static void main(String args[]){
         Server server = new Server(Integer.parseInt(args[0])); 
         server.serve();
+
+        //wait until two people connected to run first GUI
+        int connectedUsers = 0;
+        while (connectedUsers < 2){
+
+            connectedUsers++;
+        }
+        ShirtsGUI shirtsGUI = new ShirtsGUI();
+        shirtsGUI.setVisible(true);
     }
 
 }
