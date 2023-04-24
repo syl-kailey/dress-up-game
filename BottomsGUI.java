@@ -9,7 +9,7 @@ import java.lang.reflect.Array;
 public class BottomsGUI extends JFrame implements ActionListener {
     
     ArrayList<Bottom> selectedBottoms = new ArrayList<Bottom>();
-    Bottom[] allBottoms;
+    Bottom[] allBottoms = DressUpGame.allBottoms;
 
     JButton bottom1 = new JButton(new ImageIcon(allBottoms[0].getImageURL()));
     JButton bottom2 = new JButton(new ImageIcon(allBottoms[1].getImageURL()));
