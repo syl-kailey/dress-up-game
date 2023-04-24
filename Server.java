@@ -53,11 +53,40 @@ public class Server {
             shirtGUI.setVisible(true);
 
             // server displays shirtsGUI to both users and waits for users to each select 3 items, then closes window
+            while (true) {
+                if (shirtGUI.shirtList.size() == 3) {
+                    shirtGUI.dispose();
+                    break; 
+                }
+            }
 
-            // repeat for bottomsGUI and shoesGUI 
+            // repeat for bottomsGUI 
+            BottomsGUI bottomsGUI = new BottomsGUI();
+            bottomsGUI.setVisible(true);
+
+            while (true) {
+                if (bottomsGUI.bottomsList.size() == 3) {
+                    bottomsGUI.dispose(); 
+                    break; 
+                }
+            }
+
+            // and shoesGUI 
+            ShoesGUI shoesGUI = new ShoesGUI(); 
+            shoesGUI.setVisible(true);
+
+            while (true) {
+                if (shoesGUI.shoesList.size() == 3) {
+                    shoesGUI.dispose(); 
+                    break; 
+                }
+            }
+
+            // analyze preferred characteristics and determine outfit 
 
             // finally, open window with new doll 
-
+            DollGUI dollGUI = new DollGUI();
+            dollGUI.setVisible(true);
         }
     }
 
