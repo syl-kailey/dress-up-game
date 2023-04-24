@@ -23,6 +23,7 @@ public class ShirtGUI extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 // System.out.println("test");
                 // store this 
+                // count to 3 and close 
             } 
         });
 
