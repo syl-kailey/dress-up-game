@@ -136,7 +136,26 @@ public class DressUpGame {
 
     void populateShoes(){
         allShoes = new Shoes[20];
-        allShoes[0] = new Shoes(0, null);
+        allShoes[0] = new Shoes(0, "./allpngs/Shoes1.png");
+        allShoes[1] = new Shoes(1, "./allpngs/shoes 2 .png");
+        allShoes[2] = new Shoes(2, "./allpngs/shoes3 .png");
+        allShoes[3] = new Shoes(3, "./allpngs/shoes4 .png");
+        allShoes[4] = new Shoes(4, "./allpngs/shoe 5 .png");
+        allShoes[5] = new Shoes(5, "./allpngs/shoes6 .png");
+        allShoes[6] = new Shoes(6, "./allpngs/shoes7 .png");
+        allShoes[7] = new Shoes(7, "./allpngs/shoes8 .png");
+        allShoes[8] = new Shoes(8, "./allpngs/shoes9.png");
+        allShoes[9] = new Shoes(9, "./allpngs/shoes 10 .png");
+        allShoes[10] = new Shoes(10, "./allpngs/shoes 11.png");
+        allShoes[11] = new Shoes(11, "./allpngs/shoe12 .png");
+        allShoes[12] = new Shoes(12, "./allpngs/shoes13.png");
+        allShoes[13] = new Shoes(13, "./allpngs/shoes14 .png");
+        allShoes[14] = new Shoes(14, "./allpngs/shoes15.png");
+        allShoes[15] = new Shoes(15, "./allpngs/shoes16 .png");
+        allShoes[16] = new Shoes(16, "./allpngs/shoes17 .png");
+        allShoes[17] = new Shoes(17, "./allpngs/shoes18 .png");
+        allShoes[18] = new Shoes(18, "./allpngs/shoes19.png");
+        allShoes[19] = new Shoes(19, "./allpngs/shoes20 .png");
     }
 
     void populateOutfit(){//in spreadsheet all outfit numbers are +1
