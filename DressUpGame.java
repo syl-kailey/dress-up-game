@@ -14,7 +14,7 @@ public class DressUpGame {
     List<String> patterns;
     List<String> aesthetics;
     List<String> favoritePattern;
-    Top[] allTops;
+    static Top[] allTops;
     Bottom[] allBottoms;
     Shoes[] allShoes;
     public Outfit[] allOutfits;
@@ -85,7 +85,7 @@ public class DressUpGame {
         return aesthetics;
     }
 
-    void populateTops(){
+    static void populateTops(){
         allTops = new Top[20];
         allTops[0] = new Top(0, "./allpngs/top1.png");
         allTops[1] = new Top(1, "./allpngs/top2.png");
