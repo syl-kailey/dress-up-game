@@ -103,7 +103,27 @@ public class DressUpGame {
 
     void populateBottoms(){
         allBottoms = new Bottom[20];
-        allBottoms[0] = new Bottom(0, null);
+        allBottoms[0] = new Bottom(0, "./allpngs/skirt 1.png");
+        allBottoms[1] = new Bottom(1, "./allpngs/pants2.png");
+        allBottoms[2] = new Bottom(2, "./allpngs/skirt 3 .png");
+        allBottoms[3] = new Bottom(3, "./allpngs/pants4 .png");
+        allBottoms[4] = new Bottom(4, "./allpngs/skirt 5 .png");
+        allBottoms[5] = new Bottom(5, "./allpngs/skirt 6 .png");
+        allBottoms[6] = new Bottom(6, "./allpngs/skirt7 .png");
+        allBottoms[7] = new Bottom(7, "./allpngs/pants8 .png");
+        allBottoms[8] = new Bottom(8, "./allpngs/skirt9 .png");
+        allBottoms[9] = new Bottom(9, "./allpngs/skirt10 .png");
+        allBottoms[10] = new Bottom(10, "./allpngs/skirt11 .png");
+        allBottoms[11] = new Bottom(11, "./allpngs/pants12 .png");
+        allBottoms[12] = new Bottom(0, "./allpngs/skirt13 .png");
+        allBottoms[13] = new Bottom(13, "./allpngs/skirt14 .png");
+        allBottoms[14] = new Bottom(14, "./allpngs/skirt15 .png");
+        allBottoms[15] = new Bottom(15, "./allpngs/skirt16.png");
+        allBottoms[16] = new Bottom(16, "./allpngs/skirt17 .png");
+        allBottoms[17] = new Bottom(17, "./allpngs/skirt18 .png");
+        allBottoms[18] = new Bottom(18, "./allpngs/skirt19 .png");
+        allBottoms[19] = new Bottom(19, "./allpngs/skirt20 .png");
+
     }
 
     void populateShoes(){
