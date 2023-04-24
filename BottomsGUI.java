@@ -81,8 +81,74 @@ public class BottomsGUI extends JFrame implements ActionListener {
         bottom19.addActionListener(this);
         bottom20.addActionListener(this);
         
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        pack();
+        setVisible(true);
+    }
 
+    public void actionPerformed(ActionEvent e) {
+        
+        JButton button = (JButton) e.getSource();
 
+        if (button == bottom1) {
+            selectedBottoms.add(allBottoms[0]);
+        } else if (button == bottom2) {
+            selectedBottoms.add(allBottoms[1]);
+        } else if (button == bottom3) {
+            selectedBottoms.add(allBottoms[2]);
+        } else if (button == bottom4) {
+            selectedBottoms.add(allBottoms[3]);
+        } else if (button == bottom5) {
+            selectedBottoms.add(allBottoms[4]);
+        } else if (button == bottom6) {
+            selectedBottoms.add(allBottoms[5]);
+        } else if (button == bottom7) {
+            selectedBottoms.add(allBottoms[6]);
+        } else if (button == bottom8) {
+            selectedBottoms.add(allBottoms[7]);
+        } else if (button == bottom9) {
+            selectedBottoms.add(allBottoms[8]);
+        } else if (button == bottom10) {
+            selectedBottoms.add(allBottoms[9]);
+        } else if (button == bottom11) {
+            selectedBottoms.add(allBottoms[10]);
+        } else if (button == bottom12) {
+            selectedBottoms.add(allBottoms[11]);
+        } else if (button == bottom13) {
+            selectedBottoms.add(allBottoms[12]);
+        } else if (button == bottom14) {
+            selectedBottoms.add(allBottoms[13]);
+        } else if (button == bottom15) {
+            selectedBottoms.add(allBottoms[14]);
+        } else if (button == bottom16) {
+            selectedBottoms.add(allBottoms[15]);
+        } else if (button == bottom17) {
+            selectedBottoms.add(allBottoms[16]);
+        } else if (button == bottom18) {
+            selectedBottoms.add(allBottoms[17]);
+        } else if (button == bottom19) {
+            selectedBottoms.add(allBottoms[18]);
+        } else if (button == bottom20) {
+            selectedBottoms.add(allBottoms[19]);
+        }
+
+        if (selectedBottoms.size() == 3) {
+            ShoesGUI shoesGUI = new ShoesGUI();
+            shoesGUI.setVisible(true);
+            dispose();
+        }
+    
+    }
+
+    public ArrayList<Bottom> getSelectedBottoms(){
+        return selectedBottoms;
+    }
+
+    public static void main(String[] args) {
+        BottomsGUI bottomsFrame = new BottomsGUI();
+        bottomsFrame.setTitle("Machine Dressing");
+        bottomsFrame.setSize(300, 300);
+        bottomsFrame.setVisible(true);
     }
 
 }
