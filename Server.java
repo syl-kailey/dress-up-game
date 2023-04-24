@@ -92,7 +92,7 @@ public class Server {
                 }
             }
 
-            // analyze preferred characteristics and determine outfit 
+            // analyze preferred characteristics and determine outfits 
 
             // finally, open window with new doll 
             DollGUI dollGUI = new DollGUI();

@@ -13,12 +13,17 @@ public class ShirtGUI extends JFrame {
     JTextArea instructions; 
     Top sampleTop = new Top(1, "./allpngs/top1.png");
     ArrayList<Top> shirtList = new ArrayList<>(); 
+    Top[] allTops;
 
     public ShirtGUI () {
         instructions = new JTextArea ("Please select your three favorite shirts from the options below: "); 
         instructions.setEditable(false); 
 
-        /*for (Top shirt: allTops) {
+        DressUpGame.populateTops(); 
+        this.allTops = DressUpGame.allTops; 
+
+        // add each shirt to GUI panel as the loop continues so that they all appear 
+        for (Top shirt: allTops) {
             ImageIcon shirtImage = new ImageIcon(shirt.imageURL); 
             JLabel shirtLabel = new JLabel(shirtImage); 
 
@@ -26,11 +31,11 @@ public class ShirtGUI extends JFrame {
                 public void mouseClicked(MouseEvent e) {
                     // System.out.println("test");
                     // store this 
-                    shirtList.add(shirt)
+                    shirtList.add(shirt); 
                     // count to 3 and close 
                 }
-            })
-        }*/
+            });
+        }
 
         ImageIcon topImage = new ImageIcon(sampleTop.imageURL);
         JLabel topLabel = new JLabel(topImage);
