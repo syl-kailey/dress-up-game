@@ -11,20 +11,13 @@ import javax.swing.plaf.metal.MetalLookAndFeel;
 public class ShirtGUI extends JFrame {
 
     JTextArea instructions; 
-<<<<<<< HEAD
     Top sampleTop = new Top(1, "top1.png");
     ArrayList<Top> shirtList = new ArrayList<>(); 
 
-=======
-    Top sampleTop = new Top(1, "allpngs\top1.png");
-    Top sampleDoll = new Top(1, "Doll3.png");
-    
->>>>>>> 0fee3549c2b2c424b7aa2569d316c4b5eb8abbf3
     public ShirtGUI () {
         instructions = new JTextArea ("Please select your three favorite shirts from the options below: "); 
         instructions.setEditable(false); 
 
-<<<<<<< HEAD
         /*for (Top shirt: allTops) {
             ImageIcon shirtImage = new ImageIcon(shirt.imageURL); 
             JLabel shirtLabel = new JLabel(shirtImage); 
@@ -38,9 +31,6 @@ public class ShirtGUI extends JFrame {
                 }
             })
         }*/
-=======
-        ImageIcon dollImage = new ImageIcon(sampleDoll.imageURL);
->>>>>>> 0fee3549c2b2c424b7aa2569d316c4b5eb8abbf3
 
         ImageIcon topImage = new ImageIcon(sampleTop.imageURL);
         JLabel topLabel = new JLabel(topImage);
