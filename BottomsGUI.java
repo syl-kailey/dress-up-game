@@ -145,6 +145,8 @@ public class BottomsGUI extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
+        DressUpGame.populateBottoms(); 
+
         BottomsGUI bottomsFrame = new BottomsGUI();
         bottomsFrame.setTitle("Machine Dressing");
         bottomsFrame.setSize(300, 300);
