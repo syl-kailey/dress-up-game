@@ -1,4 +1,7 @@
 import java.util.*;
+
+import javax.crypto.AEADBadTagException;
+
 import java.net.*;
 import java.io.*;
 
@@ -49,12 +52,17 @@ public class Server {
         }
  
         public synchronized void run() {
+            ArrayList<Top> list1 = new ArrayList<>(); 
+            ArrayList<Bottom> list2 = new ArrayList<>();
+            ArrayList<Shoes> list3 = new ArrayList<>(); 
+
             ShirtGUI shirtGUI = new ShirtGUI();
             shirtGUI.setVisible(true);
 
             // server displays shirtsGUI to both users and waits for users to each select 3 items, then closes window
             while (true) {
                 if (shirtGUI.shirtList.size() == 3) {
+                    list1 = shirtGUI.shirtList; 
                     shirtGUI.dispose();
                     break; 
                 }
@@ -66,6 +74,7 @@ public class Server {
 
             while (true) {
                 if (bottomsGUI.bottomsList.size() == 3) {
+                    list2 = bottomsGUI.bottomsList; 
                     bottomsGUI.dispose(); 
                     break; 
                 }
@@ -77,6 +86,7 @@ public class Server {
 
             while (true) {
                 if (shoesGUI.shoesList.size() == 3) {
+                    list3 = shoesGUI.shoesList; 
                     shoesGUI.dispose(); 
                     break; 
                 }
