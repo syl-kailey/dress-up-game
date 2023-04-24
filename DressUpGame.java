@@ -13,6 +13,9 @@ public class DressUpGame {
     Bottom[] allBottoms;
     Shoes[] allShoes;
     public Outfit[] allOutfits;
+    List<Outfit> patternOutfits;
+    List<Outfit> colorOutfits;
+    List<Outfit> aestheticOutfits;
 
     public List<String> favoriteColor(User user1, User user2){
         List<String> colors1 = user1.preferredColors();
@@ -119,11 +122,6 @@ public class DressUpGame {
 
 
     Outfit selectOutfit(){//i removed parameters because theyre already global variables
-
-
-        List<Outfit> patternOutfits = null;
-        List<Outfit> colorOutfits = null;
-        List<Outfit> aestheticOutfits = null;
 
         //if length of colors is 1
             //find outfits with that color
