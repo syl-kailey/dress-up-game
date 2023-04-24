@@ -3,6 +3,13 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import java.awt.BorderLayout;
 import java.awt.event.*;
+import javax.swing.*;
+import java.awt.*;
+import java.util.*;
+import java.net.*;
+import java.io.*;
+import javax.swing.plaf.metal.*;
+import javax.swing.plaf.metal.MetalLookAndFeel;
 
 public class DollGUI extends JFrame {
 
@@ -19,6 +26,13 @@ public class DollGUI extends JFrame {
     }
 
     public static void main (String[] args) {
+        try {
+            MetalLookAndFeel.setCurrentTheme(new ourTheme());
+            UIManager.setLookAndFeel(new MetalLookAndFeel());
+        }
+        catch (Exception e) {
+            System.out.println("Look and Feel not set");
+        }
         DollGUI sample = new DollGUI(); 
         sample.setVisible(true);
     }

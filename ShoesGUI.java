@@ -10,7 +10,7 @@ import javax.swing.plaf.metal.MetalLookAndFeel;
 public class ShoesGUI extends JFrame {
 
     JTextArea instructions; 
-    Top sampleTop = new Top(1, "top1.png");
+    Top sampleTop = new Top(1, "./allpngs/top1.png");
     ArrayList<Shoes> shoesList = new ArrayList<>(); 
     
     public ShoesGUI () {
@@ -36,6 +36,13 @@ public class ShoesGUI extends JFrame {
     }
 
     public static void main (String args[]) {
+        try {
+            MetalLookAndFeel.setCurrentTheme(new ourTheme());
+            UIManager.setLookAndFeel(new MetalLookAndFeel());
+        }
+        catch (Exception e) {
+            System.out.println("Look and Feel not set");
+        }
         ShirtGUI test = new ShirtGUI(); 
         test.setVisible(true);
     }
