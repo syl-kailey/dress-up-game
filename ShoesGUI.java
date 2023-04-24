@@ -132,6 +132,9 @@ public class ShoesGUI extends JFrame implements ActionListener {
             selectedShoes.add(allShoes[19]);
         }
 
+        if (selectedShoes.size() == 3) {
+            dispose();
+        }
     
     }
 
