@@ -79,7 +79,26 @@ public class DressUpGame {
 
     void populateTops(){
         allTops = new Top[20];
-        allTops[0] = new Top(0, null);
+        allTops[0] = new Top(0, "./allpngs/top1.png");
+        allTops[1] = new Top(1, "./allpngs/top2.png");
+        allTops[2] = new Top(2, "./allpngs/top3 .png");
+        allTops[3] = new Top(3, "./allpngs/top4 .png");
+        allTops[4] = new Top(4, "./allpngs/top5.png");
+        allTops[5] = new Top(5, "./allpngs/top6 .png");
+        allTops[6] = new Top(6, "./allpngs/top7 .png");
+        allTops[7] = new Top(7, "./allpngs/top8 .png");
+        allTops[8] = new Top(8, "./allpngs/top9 .png");
+        allTops[9] = new Top(9, "./allpngs/top10.png");
+        allTops[10] = new Top(10, "./allpngs/top 11 .png");
+        allTops[11] = new Top(11, "./allpngs/top 12.png");
+        allTops[12] = new Top(12, "./allpngs/top 13 .png");
+        allTops[13] = new Top(13, "./allpngs/top 14.png");
+        allTops[14] = new Top(14, "./allpngs/top 15 .png");
+        allTops[15] = new Top(15, "./allpngs/top 16 .png");
+        allTops[16] = new Top(16, "./allpngs/top17 .png");
+        allTops[17] = new Top(17, "./allpngs/top18.png");
+        allTops[18] = new Top(18, "./allpngs/top19 .png");
+        allTops[19] = new Top(19, "./allpngs/top20.png");
     }
 
     void populateBottoms(){
