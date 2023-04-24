@@ -110,7 +110,7 @@ public class Server {
 
             connectedUsers++;
         }
-        ShirtsGUI shirtsGUI = new ShirtsGUI();
+        ShirtGUI shirtsGUI = new ShirtGUI();
         shirtsGUI.setVisible(true);
     }
 
