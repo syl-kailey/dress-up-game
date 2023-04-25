@@ -5,13 +5,19 @@ import java.util.*;
 import java.net.*;
 import java.io.*;
 import java.lang.reflect.Array;
+import javax.swing.plaf.metal.*;
+import javax.swing.plaf.metal.MetalLookAndFeel;
+
 
 public class BottomsGUI extends JFrame implements ActionListener {
     
     ArrayList<Bottom> selectedBottoms = new ArrayList<Bottom>();
     Bottom[] allBottoms = DressUpGame.allBottoms;
 
-    JButton bottom1 = new JButton(new ImageIcon(allBottoms[0].getImageURL()));
+    ImageIcon icon = new ImageIcon(allBottoms[0].getImageURL());
+    Image newimg = icon.getImage().getScaledInstance(400, 400, java.awt.Image.SCALE_SMOOTH);
+    JButton bottom1 = new JButton(new ImageIcon(newimg));
+    //JButton bottom1 = new JButton(new ImageIcon(allBottoms[0].getImageURL()));
     JButton bottom2 = new JButton(new ImageIcon(allBottoms[1].getImageURL()));
     JButton bottom3 = new JButton(new ImageIcon(allBottoms[2].getImageURL()));
     JButton bottom4 = new JButton(new ImageIcon(allBottoms[3].getImageURL()));
@@ -146,6 +152,14 @@ public class BottomsGUI extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         DressUpGame.populateBottoms(); 
+
+        try {
+            MetalLookAndFeel.setCurrentTheme(new ourTheme());
+            UIManager.setLookAndFeel(new MetalLookAndFeel());
+        }
+        catch (Exception e) {
+            System.out.println("Look and Feel not set");
+        }
 
         BottomsGUI bottomsFrame = new BottomsGUI();
         bottomsFrame.setTitle("Machine Dressing");
