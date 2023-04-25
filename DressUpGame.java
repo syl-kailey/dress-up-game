@@ -16,7 +16,7 @@ public class DressUpGame {
     List<String> favoritePattern;
     static Top[] allTops;
     static Bottom[] allBottoms;
-    Shoes[] allShoes;
+    static Shoes[] allShoes;
     public Outfit[] allOutfits;
     List<Outfit> patternOutfits;
     List<Outfit> colorOutfits;
@@ -134,7 +134,7 @@ public class DressUpGame {
 
     }
 
-    void populateShoes(){
+    static void populateShoes(){
         allShoes = new Shoes[20];
         allShoes[0] = new Shoes(0, "./allpngs/Shoes1.png");
         allShoes[1] = new Shoes(1, "./allpngs/shoes 2 .png");
@@ -147,7 +147,7 @@ public class DressUpGame {
         allShoes[8] = new Shoes(8, "./allpngs/shoes9.png");
         allShoes[9] = new Shoes(9, "./allpngs/shoes 10 .png");
         allShoes[10] = new Shoes(10, "./allpngs/shoes 11.png");
-        allShoes[11] = new Shoes(11, "./allpngs/shoe12 .png");
+        allShoes[11] = new Shoes(11, "./allpngs/shoes12 .png");
         allShoes[12] = new Shoes(12, "./allpngs/shoes13.png");
         allShoes[13] = new Shoes(13, "./allpngs/shoes14 .png");
         allShoes[14] = new Shoes(14, "./allpngs/shoes15.png");
