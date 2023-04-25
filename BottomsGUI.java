@@ -10,7 +10,7 @@ import javax.swing.plaf.metal.MetalLookAndFeel;
 
 
 public class BottomsGUI extends JFrame implements ActionListener {
-    
+
     ArrayList<Bottom> selectedBottoms = new ArrayList<Bottom>();
     Bottom[] allBottoms = DressUpGame.allBottoms;
 
@@ -177,7 +177,9 @@ public class BottomsGUI extends JFrame implements ActionListener {
 
         if (selectedBottoms.size() == 3) {
             ShoesGUI shoesGUI = new ShoesGUI();
-            shoesGUI.setVisible(true);
+            shoesGUI.setVisible(true);//need to call an actual method like main to populate shoes, set theme, etc
+            //alternatively, we could just return to the method we call this from and call shoes from there but either
+            // way we still need a method in shoes (and bottoms and shirts) to be called that isnt a main
             dispose();
         }
     
@@ -200,7 +202,7 @@ public class BottomsGUI extends JFrame implements ActionListener {
 
         BottomsGUI bottomsFrame = new BottomsGUI();
         bottomsFrame.setTitle("Machine Dressing");
-        bottomsFrame.setSize(300, 300);
+        bottomsFrame.setSize(800, 600);
         bottomsFrame.setVisible(true);
     }
 
