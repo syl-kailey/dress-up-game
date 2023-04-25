@@ -112,7 +112,7 @@ public class DressUpGame {
     static void populateBottoms(){
         allBottoms = new Bottom[20];
         allBottoms[0] = new Bottom(0, "./allpngs/skirt 1.png");
-        allBottoms[1] = new Bottom(1, "./allpngs/pants2.png");
+        allBottoms[1] = new Bottom(1, "./allpngs/pants2 .png");
         allBottoms[2] = new Bottom(2, "./allpngs/skirt 3 .png");
         allBottoms[3] = new Bottom(3, "./allpngs/pants4 .png");
         allBottoms[4] = new Bottom(4, "./allpngs/skirt 5 .png");
