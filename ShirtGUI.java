@@ -129,13 +129,12 @@ public class ShirtGUI extends JFrame implements ActionListener {
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
-        setVisible(true);
+        //setVisible(true);
     }
 
     public void actionPerformed(ActionEvent e) {
         
         JButton button = (JButton) e.getSource();
-
         if (button == top1) {
             selectedTops.add(allTops[0]);
         } else if (button == top2) {

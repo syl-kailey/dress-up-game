@@ -126,7 +126,7 @@ public class ShoesGUI extends JFrame implements ActionListener {
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
-        setVisible(true);
+        //setVisible(true);
     }
 
     public void actionPerformed(ActionEvent e) {
