@@ -57,8 +57,8 @@ public class Server {
             ArrayList<Shoes> list3 = new ArrayList<>(); 
 
             ShirtGUI shirtGUI = new ShirtGUI();
-            shirtGUI.setVisible(true);
-
+            shirtGUI.start();
+            /* 
             // server displays shirtsGUI to both users and waits for users to each select 3 items, then closes window
             while (true) {
 
@@ -72,7 +72,7 @@ public class Server {
 
             // repeat for bottomsGUI 
             BottomsGUI bottomsGUI = new BottomsGUI();
-            bottomsGUI.setVisible(true);
+            //bottomsGUI.start();
 
             while (true) {
 
@@ -86,7 +86,7 @@ public class Server {
 
             // and shoesGUI 
             ShoesGUI shoesGUI = new ShoesGUI(); 
-            shoesGUI.setVisible(true);
+            shoesGUI.start();
 
             while (true) {
 
@@ -101,6 +101,7 @@ public class Server {
             // analyze preferred characteristics and determine outfits 
 
             // finally, open window with new doll 
+            */
             DollGUI dollGUI = new DollGUI();
             dollGUI.setVisible(true);
         }
@@ -119,8 +120,8 @@ public class Server {
 
             connectedUsers++;
         }
-        ShirtGUI shirtGUI = new ShirtGUI();
-        shirtGUI.start();
+        //ShirtGUI shirtGUI = new ShirtGUI();
+        //shirtGUI.start();
     }
 
 }

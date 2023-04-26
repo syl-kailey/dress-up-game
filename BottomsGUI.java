@@ -126,12 +126,13 @@ public class BottomsGUI extends JFrame implements ActionListener {
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
-        setVisible(true);
+        //setVisible(true);
     }
 
     public void actionPerformed(ActionEvent e) {
         
         JButton button = (JButton) e.getSource();
+        button.setForeground(Color.PINK); 
 
         if (button == bottom1) {
             selectedBottoms.add(allBottoms[0]);
