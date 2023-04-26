@@ -176,8 +176,10 @@ public class ShoesGUI extends JFrame implements ActionListener {
         }
 
         if (selectedShoes.size() == 3) {
+            /* 
             ShoesGUI shoesGUI = new ShoesGUI();
             shoesGUI.setVisible(true);
+            */
             dispose();
         }
     
@@ -187,6 +189,22 @@ public class ShoesGUI extends JFrame implements ActionListener {
         return selectedShoes;
     }
 
+    public static void start() {
+        //DressUpGame.populateShoes(); //we need to make sure this is done in the main main, not just here
+
+        try {
+            MetalLookAndFeel.setCurrentTheme(new ourTheme());
+            UIManager.setLookAndFeel(new MetalLookAndFeel());
+        }
+        catch (Exception e) {
+            System.out.println("Look and Feel not set");
+        }
+
+        ShoesGUI shoesFrame = new ShoesGUI();
+        shoesFrame.setTitle("Machine Dressing");
+        shoesFrame.setSize(800, 900);
+        shoesFrame.setVisible(true);
+    }
     public static void main(String[] args) {
         DressUpGame.populateShoes(); //we need to make sure this is done in the main main, not just here
 

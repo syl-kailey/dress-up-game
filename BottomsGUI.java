@@ -188,6 +188,22 @@ public class BottomsGUI extends JFrame implements ActionListener {
     public ArrayList<Bottom> getSelectedBottoms(){
         return selectedBottoms;
     }
+    public static void start() {
+
+        try {
+            MetalLookAndFeel.setCurrentTheme(new ourTheme());
+            UIManager.setLookAndFeel(new MetalLookAndFeel());
+        }
+        catch (Exception e) {
+            System.out.println("Look and Feel not set");
+        }
+
+        BottomsGUI bottomsFrame = new BottomsGUI();
+        bottomsFrame.setTitle("Machine Dressing");
+        bottomsFrame.setSize(800, 600);
+        bottomsFrame.setVisible(true);
+    }
+
 
     public static void main(String[] args) {
         DressUpGame.populateBottoms(); 

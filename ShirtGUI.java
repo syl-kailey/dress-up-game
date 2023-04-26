@@ -1,18 +1,21 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.List;
 import java.awt.event.*;
 import java.util.*;
 import java.net.*;
 import java.io.*;
+import java.lang.reflect.Array;
 import javax.swing.plaf.metal.*;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 
+
+
 public class ShirtGUI extends JFrame implements ActionListener {
 
-    JTextArea instructions; 
+
     ArrayList<Top> selectedTops = new ArrayList<Top>();
-    Top[] allTops = DressUpGame.allTops; 
+    Top[] allTops = DressUpGame.allTops;
+
 
     ImageIcon icon1 = new ImageIcon(allTops[0].getImageURL());
     Image newimg1 = icon1.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
@@ -78,10 +81,136 @@ public class ShirtGUI extends JFrame implements ActionListener {
     Image newimg20 = icon20.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
     JButton top20 = new JButton(new ImageIcon(newimg20));
 
-    public ShirtGUI () {
-        instructions = new JTextArea ("Please select your three favorite shirts from the options below: "); 
-        instructions.setEditable(false); 
+    public ShirtGUI(){
+        setLayout(new GridLayout(4, 5));
 
+        add(top1);
+        add(top2);
+        add(top3);
+        add(top4);
+        add(top5);
+        add(top6);
+        add(top7);
+        add(top8);
+        add(top9);
+        add(top10);
+        add(top11);
+        add(top12);
+        add(top13);
+        add(top14);
+        add(top15);
+        add(top16);
+        add(top17);
+        add(top18);
+        add(top19);
+        add(top20);
+
+        top1.addActionListener(this);
+        top2.addActionListener(this);
+        top3.addActionListener(this);
+        top4.addActionListener(this);
+        top5.addActionListener(this);
+        top6.addActionListener(this);
+        top7.addActionListener(this);
+        top8.addActionListener(this);
+        top9.addActionListener(this);
+        top10.addActionListener(this);
+
+        top11.addActionListener(this);
+        top12.addActionListener(this);
+        top13.addActionListener(this);
+        top14.addActionListener(this);
+        top15.addActionListener(this);
+        top16.addActionListener(this);
+        top17.addActionListener(this);
+        top18.addActionListener(this);
+        top19.addActionListener(this);
+        top20.addActionListener(this);
+        
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        pack();
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        
+        JButton button = (JButton) e.getSource();
+
+        if (button == top1) {
+            selectedTops.add(allTops[0]);
+        } else if (button == top2) {
+            selectedTops.add(allTops[1]);
+        } else if (button == top3) {
+            selectedTops.add(allTops[2]);
+        } else if (button == top4) {
+            selectedTops.add(allTops[3]);
+        } else if (button == top5) {
+            selectedTops.add(allTops[4]);
+        } else if (button == top6) {
+            selectedTops.add(allTops[5]);
+        } else if (button == top7) {
+            selectedTops.add(allTops[6]);
+        } else if (button == top8) {
+            selectedTops.add(allTops[7]);
+        } else if (button == top9) {
+            selectedTops.add(allTops[8]);
+        } else if (button == top10) {
+            selectedTops.add(allTops[9]);
+        } else if (button == top11) {
+            selectedTops.add(allTops[10]);
+        } else if (button == top12) {
+            selectedTops.add(allTops[11]);
+        } else if (button == top13) {
+            selectedTops.add(allTops[12]);
+        } else if (button == top14) {
+            selectedTops.add(allTops[13]);
+        } else if (button == top15) {
+            selectedTops.add(allTops[14]);
+        } else if (button == top16) {
+            selectedTops.add(allTops[15]);
+        } else if (button == top17) {
+            selectedTops.add(allTops[16]);
+        } else if (button == top18) {
+            selectedTops.add(allTops[17]);
+        } else if (button == top19) {
+            selectedTops.add(allTops[18]);
+        } else if (button == top20) {
+            selectedTops.add(allTops[19]);
+        }
+
+        if (selectedTops.size() == 3) {
+            BottomsGUI bottomsGUI = new BottomsGUI();
+            bottomsGUI.start();
+            dispose();
+        }
+    
+    }
+
+    public ArrayList<Top> getSelectedTops(){
+        return selectedTops;
+    }
+
+    public static void start() {
+
+        try {
+            MetalLookAndFeel.setCurrentTheme(new ourTheme());
+            UIManager.setLookAndFeel(new MetalLookAndFeel());
+        }
+        catch (Exception e) {
+            System.out.println("Look and Feel not set");
+        }
+
+        ShirtGUI topsFrame = new ShirtGUI();
+        topsFrame.setTitle("Machine Dressing");
+        topsFrame.setSize(800, 600);
+        topsFrame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        DressUpGame.populateTops(); 
+        DressUpGame.populateBottoms();
+        DressUpGame.populateShoes();
+=======
         setLayout(new GridLayout(4, 5));
 
         add(top1);
@@ -199,6 +328,7 @@ public class ShirtGUI extends JFrame implements ActionListener {
         shirtFrame.setSize(300, 300);
         shirtFrame.setVisible(true);
 
+
         try {
             MetalLookAndFeel.setCurrentTheme(new ourTheme());
             UIManager.setLookAndFeel(new MetalLookAndFeel());
@@ -206,8 +336,11 @@ public class ShirtGUI extends JFrame implements ActionListener {
         catch (Exception e) {
             System.out.println("Look and Feel not set");
         }
-        ShirtGUI test = new ShirtGUI(); 
-        test.setVisible(true);
+
+        ShirtGUI topsFrame = new ShirtGUI();
+        topsFrame.setTitle("Machine Dressing");
+        topsFrame.setSize(800, 600);
+        topsFrame.setVisible(true);
     }
 
 }

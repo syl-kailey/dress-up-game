@@ -272,6 +272,9 @@ public class DressUpGame {
 
 
     public static void main(String[] args) {
+        DressUpGame.populateTops(); 
+        DressUpGame.populateBottoms();
+        DressUpGame.populateShoes();
 
         //run start page
 
