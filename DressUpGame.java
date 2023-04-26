@@ -21,6 +21,7 @@ public class DressUpGame {
     List<Outfit> patternOutfits;
     List<Outfit> colorOutfits;
     List<Outfit> aestheticOutfits;
+    static Boolean outfitSelected = false;
 
     public List<String> favoriteColor(User user1, User user2){
         List<String> colors1 = user1.preferredColors();
@@ -266,6 +267,7 @@ public class DressUpGame {
             potentialOutfits.add(aestheticOutfits.get(0));
         }
         finalOutfit = potentialOutfits.get((int)(Math.random()*potentialOutfits.size()));//again, should probably check my math
+        outfitSelected = true;
         return finalOutfit ;
     }
 
