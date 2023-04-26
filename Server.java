@@ -61,8 +61,8 @@ public class Server {
 
             // server displays shirtsGUI to both users and waits for users to each select 3 items, then closes window
             while (true) {
-                if (shirtGUI.shirtList.size() == 3) {
-                    list1 = shirtGUI.shirtList; 
+                if (shirtGUI.selectedTops.size() == 3) {
+                    list1 = shirtGUI.selectedTops; 
                     shirtGUI.dispose();
                     break; 
                 }
@@ -73,8 +73,8 @@ public class Server {
             bottomsGUI.setVisible(true);
 
             while (true) {
-                if (bottomsGUI.bottomsList.size() == 3) {
-                    list2 = bottomsGUI.bottomsList; 
+                if (bottomsGUI.selectedBottoms.size() == 3) {
+                    list2 = bottomsGUI.selectedBottoms; 
                     bottomsGUI.dispose(); 
                     break; 
                 }
@@ -85,8 +85,8 @@ public class Server {
             shoesGUI.setVisible(true);
 
             while (true) {
-                if (shoesGUI.shoesList.size() == 3) {
-                    list3 = shoesGUI.shoesList; 
+                if (shoesGUI.selectedShoes.size() == 3) {
+                    list3 = shoesGUI.selectedShoes; 
                     shoesGUI.dispose(); 
                     break; 
                 }
