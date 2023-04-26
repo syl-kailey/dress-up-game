@@ -271,26 +271,4 @@ public class DressUpGame {
 
 
 
-    public static void main(String[] args) {
-        DressUpGame.populateTops(); 
-        DressUpGame.populateBottoms();
-        DressUpGame.populateShoes();
-
-        //run start page
-
-        try {
-            MetalLookAndFeel.setCurrentTheme(new ourTheme());
-            UIManager.setLookAndFeel(new MetalLookAndFeel());
-        }
-        catch (Exception e) {
-            System.out.println("Look and Feel not set");
-        }
-        StartPageGUI startFrame = new StartPageGUI();
-
-        startFrame.setTitle("Machine Dressing");
-        startFrame.setSize(300, 300);
-        startFrame.setVisible(true);
-        
-    }
-
 }

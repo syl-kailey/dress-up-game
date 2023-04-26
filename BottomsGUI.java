@@ -135,44 +135,64 @@ public class BottomsGUI extends JFrame implements ActionListener {
 
         if (button == bottom1) {
             selectedBottoms.add(allBottoms[0]);
+            bottom1.setSelected(true);
         } else if (button == bottom2) {
             selectedBottoms.add(allBottoms[1]);
+            bottom2.setSelected(true);
         } else if (button == bottom3) {
             selectedBottoms.add(allBottoms[2]);
+            bottom3.setSelected(true);
         } else if (button == bottom4) {
             selectedBottoms.add(allBottoms[3]);
+            bottom4.setSelected(true);
         } else if (button == bottom5) {
             selectedBottoms.add(allBottoms[4]);
+            bottom5.setSelected(true);
         } else if (button == bottom6) {
             selectedBottoms.add(allBottoms[5]);
+            bottom6.setSelected(true);
         } else if (button == bottom7) {
             selectedBottoms.add(allBottoms[6]);
+            bottom7.setSelected(true);
         } else if (button == bottom8) {
             selectedBottoms.add(allBottoms[7]);
+            bottom8.setSelected(true);
         } else if (button == bottom9) {
             selectedBottoms.add(allBottoms[8]);
+            bottom9.setSelected(true);
         } else if (button == bottom10) {
             selectedBottoms.add(allBottoms[9]);
+            bottom10.setSelected(true);
         } else if (button == bottom11) {
             selectedBottoms.add(allBottoms[10]);
+            bottom11.setSelected(true);
         } else if (button == bottom12) {
             selectedBottoms.add(allBottoms[11]);
+            bottom12.setSelected(true);
         } else if (button == bottom13) {
             selectedBottoms.add(allBottoms[12]);
+            bottom13.setSelected(true);
         } else if (button == bottom14) {
             selectedBottoms.add(allBottoms[13]);
+            bottom14.setSelected(true);
         } else if (button == bottom15) {
             selectedBottoms.add(allBottoms[14]);
+            bottom15.setSelected(true);
         } else if (button == bottom16) {
             selectedBottoms.add(allBottoms[15]);
+            bottom16.setSelected(true);
         } else if (button == bottom17) {
             selectedBottoms.add(allBottoms[16]);
+            bottom17.setSelected(true);
         } else if (button == bottom18) {
             selectedBottoms.add(allBottoms[17]);
+            bottom18.setSelected(true);
         } else if (button == bottom19) {
             selectedBottoms.add(allBottoms[18]);
+            bottom19.setSelected(true);
         } else if (button == bottom20) {
             selectedBottoms.add(allBottoms[19]);
+            bottom20.setSelected(true);
         }
 
         if (selectedBottoms.size() == 3) {
@@ -189,24 +209,6 @@ public class BottomsGUI extends JFrame implements ActionListener {
         return selectedBottoms;
     }
     public static void start() {
-
-        try {
-            MetalLookAndFeel.setCurrentTheme(new ourTheme());
-            UIManager.setLookAndFeel(new MetalLookAndFeel());
-        }
-        catch (Exception e) {
-            System.out.println("Look and Feel not set");
-        }
-
-        BottomsGUI bottomsFrame = new BottomsGUI();
-        bottomsFrame.setTitle("Machine Dressing");
-        bottomsFrame.setSize(800, 600);
-        bottomsFrame.setVisible(true);
-    }
-
-
-    public static void main(String[] args) {
-        DressUpGame.populateBottoms(); 
 
         try {
             MetalLookAndFeel.setCurrentTheme(new ourTheme());

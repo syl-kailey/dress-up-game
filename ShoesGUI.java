@@ -135,44 +135,64 @@ public class ShoesGUI extends JFrame implements ActionListener {
 
         if (button == shoes1) {
             selectedShoes.add(allShoes[0]);
+            shoes1.setSelected(true);
         } else if (button == shoes2) {
             selectedShoes.add(allShoes[1]);
+            shoes2.setSelected(true);
         } else if (button == shoes3) {
             selectedShoes.add(allShoes[2]);
+            shoes3.setSelected(true);
         } else if (button == shoes4) {
             selectedShoes.add(allShoes[3]);
+            shoes4.setSelected(true);
         } else if (button == shoes5) {
             selectedShoes.add(allShoes[4]);
+            shoes5.setSelected(true);
         } else if (button == shoes6) {
             selectedShoes.add(allShoes[5]);
+            shoes6.setSelected(true);
         } else if (button == shoes7) {
             selectedShoes.add(allShoes[6]);
+            shoes7.setSelected(true);
         } else if (button == shoes8) {
             selectedShoes.add(allShoes[7]);
+            shoes8.setSelected(true);
         } else if (button == shoes9) {
             selectedShoes.add(allShoes[8]);
+            shoes9.setSelected(true);
         } else if (button == shoes10) {
             selectedShoes.add(allShoes[9]);
+            shoes10.setSelected(true);
         } else if (button == shoes11) {
             selectedShoes.add(allShoes[10]);
+            shoes11.setSelected(true);
         } else if (button == shoes12) {
             selectedShoes.add(allShoes[11]);
+            shoes12.setSelected(true);
         } else if (button == shoes13) {
             selectedShoes.add(allShoes[12]);
+            shoes13.setSelected(true);
         } else if (button == shoes14) {
             selectedShoes.add(allShoes[13]);
+            shoes14.setSelected(true);
         } else if (button == shoes15) {
             selectedShoes.add(allShoes[14]);
+            shoes15.setSelected(true);
         } else if (button == shoes16) {
             selectedShoes.add(allShoes[15]);
+            shoes16.setSelected(true);
         } else if (button == shoes17) {
             selectedShoes.add(allShoes[16]);
+            shoes17.setSelected(true);
         } else if (button == shoes18) {
             selectedShoes.add(allShoes[17]);
+            shoes18.setSelected(true);
         } else if (button == shoes19) {
             selectedShoes.add(allShoes[18]);
+            shoes19.setSelected(true);
         } else if (button == shoes20) {
             selectedShoes.add(allShoes[19]);
+            shoes20.setSelected(true);
         }
 
         if (selectedShoes.size() == 3) {
@@ -191,22 +211,6 @@ public class ShoesGUI extends JFrame implements ActionListener {
 
     public static void start() {
         //DressUpGame.populateShoes(); //we need to make sure this is done in the main main, not just here
-
-        try {
-            MetalLookAndFeel.setCurrentTheme(new ourTheme());
-            UIManager.setLookAndFeel(new MetalLookAndFeel());
-        }
-        catch (Exception e) {
-            System.out.println("Look and Feel not set");
-        }
-
-        ShoesGUI shoesFrame = new ShoesGUI();
-        shoesFrame.setTitle("Machine Dressing");
-        shoesFrame.setSize(800, 900);
-        shoesFrame.setVisible(true);
-    }
-    public static void main(String[] args) {
-        DressUpGame.populateShoes(); //we need to make sure this is done in the main main, not just here
 
         try {
             MetalLookAndFeel.setCurrentTheme(new ourTheme());
