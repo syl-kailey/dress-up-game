@@ -61,8 +61,8 @@ public class Server {
 
             // server displays shirtsGUI to both users and waits for users to each select 3 items, then closes window
             while (true) {
-                if (shirtGUI.shirtList.size() == 3) {
-                    list1 = shirtGUI.shirtList; 
+                if (shirtGUI.getSelectedTops().size() == 3) {
+                    list1 = shirtGUI.getSelectedTops(); 
                     shirtGUI.dispose();
                     break; 
                 }
@@ -73,8 +73,8 @@ public class Server {
             bottomsGUI.setVisible(true);
 
             while (true) {
-                if (bottomsGUI.bottomsList.size() == 3) {
-                    list2 = bottomsGUI.bottomsList; 
+                if (bottomsGUI.getSelectedBottoms().size() == 3) {
+                    list2 = bottomsGUI.getSelectedBottoms(); 
                     bottomsGUI.dispose(); 
                     break; 
                 }
@@ -85,8 +85,8 @@ public class Server {
             shoesGUI.setVisible(true);
 
             while (true) {
-                if (shoesGUI.shoesList.size() == 3) {
-                    list3 = shoesGUI.shoesList; 
+                if (shoesGUI.getSelectedShoes().size() == 3) {
+                    list3 = shoesGUI.getSelectedShoes(); 
                     shoesGUI.dispose(); 
                     break; 
                 }
@@ -101,6 +101,9 @@ public class Server {
     }
 
     public static void main(String args[]){
+        DressUpGame.populateTops(); 
+        DressUpGame.populateBottoms();
+        DressUpGame.populateShoes();
         Server server = new Server(Integer.parseInt(args[0])); 
         server.serve();
 
@@ -110,8 +113,8 @@ public class Server {
 
             connectedUsers++;
         }
-        ShirtGUI shirtsGUI = new ShirtGUI();
-        shirtsGUI.setVisible(true);
+        ShirtGUI shirtGUI = new ShirtGUI();
+        shirtGUI.start();
     }
 
 }
