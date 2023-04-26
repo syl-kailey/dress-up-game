@@ -102,6 +102,9 @@ public class Server {
 
             // finally, open window with new doll 
             */
+            while (DressUpGame.outfitSelected == false){
+                
+            }
             DollGUI dollGUI = new DollGUI();
             dollGUI.setVisible(true);
         }
