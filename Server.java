@@ -1,4 +1,7 @@
 import java.util.*;
+
+import javax.crypto.AEADBadTagException;
+
 import java.net.*;
 import java.io.*;
 
@@ -49,15 +52,51 @@ public class Server {
         }
  
         public synchronized void run() {
+            ArrayList<Top> list1 = new ArrayList<>(); 
+            ArrayList<Bottom> list2 = new ArrayList<>();
+            ArrayList<Shoes> list3 = new ArrayList<>(); 
+
             ShirtGUI shirtGUI = new ShirtGUI();
             shirtGUI.setVisible(true);
 
             // server displays shirtsGUI to both users and waits for users to each select 3 items, then closes window
+            while (true) {
+                if (shirtGUI.selectedTops.size() == 3) {
+                    list1 = shirtGUI.selectedTops; 
+                    shirtGUI.dispose();
+                    break; 
+                }
+            }
 
-            // repeat for bottomsGUI and shoesGUI 
+            // repeat for bottomsGUI 
+            BottomsGUI bottomsGUI = new BottomsGUI();
+            bottomsGUI.setVisible(true);
+
+            while (true) {
+                if (bottomsGUI.selectedBottoms.size() == 3) {
+                    list2 = bottomsGUI.selectedBottoms; 
+                    bottomsGUI.dispose(); 
+                    break; 
+                }
+            }
+
+            // and shoesGUI 
+            ShoesGUI shoesGUI = new ShoesGUI(); 
+            shoesGUI.setVisible(true);
+
+            while (true) {
+                if (shoesGUI.selectedShoes.size() == 3) {
+                    list3 = shoesGUI.selectedShoes; 
+                    shoesGUI.dispose(); 
+                    break; 
+                }
+            }
+
+            // analyze preferred characteristics and determine outfits 
 
             // finally, open window with new doll 
-
+            DollGUI dollGUI = new DollGUI();
+            dollGUI.setVisible(true);
         }
     }
 
@@ -71,7 +110,7 @@ public class Server {
 
             connectedUsers++;
         }
-        ShirtsGUI shirtsGUI = new ShirtsGUI();
+        ShirtGUI shirtsGUI = new ShirtGUI();
         shirtsGUI.setVisible(true);
     }
 

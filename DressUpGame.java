@@ -14,9 +14,9 @@ public class DressUpGame {
     List<String> patterns;
     List<String> aesthetics;
     List<String> favoritePattern;
-    Top[] allTops;
-    Bottom[] allBottoms;
-    Shoes[] allShoes;
+    static Top[] allTops;
+    static Bottom[] allBottoms;
+    static Shoes[] allShoes;
     public Outfit[] allOutfits;
     List<Outfit> patternOutfits;
     List<Outfit> colorOutfits;
@@ -85,19 +85,77 @@ public class DressUpGame {
         return aesthetics;
     }
 
-    void populateTops(){
+    static void populateTops(){
         allTops = new Top[20];
-        allTops[0] = new Top(0, null);
+        allTops[0] = new Top(0, "./allpngs/top1.png");
+        allTops[1] = new Top(1, "./allpngs/top2.png");
+        allTops[2] = new Top(2, "./allpngs/top3 .png");
+        allTops[3] = new Top(3, "./allpngs/top4 .png");
+        allTops[4] = new Top(4, "./allpngs/top5.png");
+        allTops[5] = new Top(5, "./allpngs/top6 .png");
+        allTops[6] = new Top(6, "./allpngs/top7 .png");
+        allTops[7] = new Top(7, "./allpngs/top8 .png");
+        allTops[8] = new Top(8, "./allpngs/top9 .png");
+        allTops[9] = new Top(9, "./allpngs/top10.png");
+        allTops[10] = new Top(10, "./allpngs/top 11 .png");
+        allTops[11] = new Top(11, "./allpngs/top 12.png");
+        allTops[12] = new Top(12, "./allpngs/top 13 .png");
+        allTops[13] = new Top(13, "./allpngs/top 14.png");
+        allTops[14] = new Top(14, "./allpngs/top 15 .png");
+        allTops[15] = new Top(15, "./allpngs/top 16 .png");
+        allTops[16] = new Top(16, "./allpngs/top17 .png");
+        allTops[17] = new Top(17, "./allpngs/top18.png");
+        allTops[18] = new Top(18, "./allpngs/top19 .png");
+        allTops[19] = new Top(19, "./allpngs/top20.png");
     }
 
-    void populateBottoms(){
+    static void populateBottoms(){
         allBottoms = new Bottom[20];
-        allBottoms[0] = new Bottom(0, null);
+        allBottoms[0] = new Bottom(0, "./allpngs/skirt 1.png");
+        allBottoms[1] = new Bottom(1, "./allpngs/pants2 .png");
+        allBottoms[2] = new Bottom(2, "./allpngs/skirt 3 .png");
+        allBottoms[3] = new Bottom(3, "./allpngs/pants4 .png");
+        allBottoms[4] = new Bottom(4, "./allpngs/skirt 5 .png");
+        allBottoms[5] = new Bottom(5, "./allpngs/skirt 6 .png");
+        allBottoms[6] = new Bottom(6, "./allpngs/skirt7 .png");
+        allBottoms[7] = new Bottom(7, "./allpngs/pants8 .png");
+        allBottoms[8] = new Bottom(8, "./allpngs/skirt9 .png");
+        allBottoms[9] = new Bottom(9, "./allpngs/skirt10 .png");
+        allBottoms[10] = new Bottom(10, "./allpngs/skirt11 .png");
+        allBottoms[11] = new Bottom(11, "./allpngs/pants12 .png");
+        allBottoms[12] = new Bottom(0, "./allpngs/skirt13 .png");
+        allBottoms[13] = new Bottom(13, "./allpngs/skirt14 .png");
+        allBottoms[14] = new Bottom(14, "./allpngs/skirt15 .png");
+        allBottoms[15] = new Bottom(15, "./allpngs/skirt16.png");
+        allBottoms[16] = new Bottom(16, "./allpngs/skirt17 .png");
+        allBottoms[17] = new Bottom(17, "./allpngs/skirt18 .png");
+        allBottoms[18] = new Bottom(18, "./allpngs/skirt19 .png");
+        allBottoms[19] = new Bottom(19, "./allpngs/skirt20 .png");
+
     }
 
-    void populateShoes(){
+    static void populateShoes(){
         allShoes = new Shoes[20];
-        allShoes[0] = new Shoes(0, null);
+        allShoes[0] = new Shoes(0, "./allpngs/Shoes1.png");
+        allShoes[1] = new Shoes(1, "./allpngs/shoes 2 .png");
+        allShoes[2] = new Shoes(2, "./allpngs/shoes3 .png");
+        allShoes[3] = new Shoes(3, "./allpngs/shoes4 .png");
+        allShoes[4] = new Shoes(4, "./allpngs/shoe 5 .png");
+        allShoes[5] = new Shoes(5, "./allpngs/shoes6 .png");
+        allShoes[6] = new Shoes(6, "./allpngs/shoes7 .png");
+        allShoes[7] = new Shoes(7, "./allpngs/shoes8 .png");
+        allShoes[8] = new Shoes(8, "./allpngs/shoes9.png");
+        allShoes[9] = new Shoes(9, "./allpngs/shoes 10 .png");
+        allShoes[10] = new Shoes(10, "./allpngs/shoes 11.png");
+        allShoes[11] = new Shoes(11, "./allpngs/shoes12 .png");
+        allShoes[12] = new Shoes(12, "./allpngs/shoes13.png");
+        allShoes[13] = new Shoes(13, "./allpngs/shoes14 .png");
+        allShoes[14] = new Shoes(14, "./allpngs/shoes15.png");
+        allShoes[15] = new Shoes(15, "./allpngs/shoes16 .png");
+        allShoes[16] = new Shoes(16, "./allpngs/shoes17 .png");
+        allShoes[17] = new Shoes(17, "./allpngs/shoes18 .png");
+        allShoes[18] = new Shoes(18, "./allpngs/shoes19.png");
+        allShoes[19] = new Shoes(19, "./allpngs/shoes20 .png");
     }
 
     void populateOutfit(){//in spreadsheet all outfit numbers are +1

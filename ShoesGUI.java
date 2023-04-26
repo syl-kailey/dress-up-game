@@ -5,35 +5,78 @@ import java.util.*;
 import java.net.*;
 import java.io.*;
 import java.lang.reflect.Array;
+import javax.swing.plaf.metal.*;
+import javax.swing.plaf.metal.MetalLookAndFeel;
+
 
 public class ShoesGUI extends JFrame implements ActionListener {
-    
+
     ArrayList<Shoes> selectedShoes = new ArrayList<Shoes>();
-    Shoes[] allShoes;
+    Shoes[] allShoes = DressUpGame.allShoes;
 
-    JButton shoes1 = new JButton(new ImageIcon(allShoes[0].getImageURL()));
-    JButton shoes2 = new JButton(new ImageIcon(allShoes[1].getImageURL()));
-    JButton shoes3 = new JButton(new ImageIcon(allShoes[2].getImageURL()));
-    JButton shoes4 = new JButton(new ImageIcon(allShoes[3].getImageURL()));
-    JButton shoes5 = new JButton(new ImageIcon(allShoes[4].getImageURL()));
+    ImageIcon icon1 = new ImageIcon(allShoes[0].getImageURL());
+    Image newimg1 = icon1.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
+    JButton shoes1 = new JButton(new ImageIcon(newimg1));
+    ImageIcon icon2 = new ImageIcon(allShoes[1].getImageURL());
+    Image newimg2 = icon2.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
+    JButton shoes2 = new JButton(new ImageIcon(newimg2));
+    ImageIcon icon3 = new ImageIcon(allShoes[2].getImageURL());
+    Image newimg3 = icon3.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
+    JButton shoes3 = new JButton(new ImageIcon(newimg3));
+    ImageIcon icon4 = new ImageIcon(allShoes[3].getImageURL());
+    Image newimg4 = icon4.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
+    JButton shoes4 = new JButton(new ImageIcon(newimg4));
+    ImageIcon icon5 = new ImageIcon(allShoes[4].getImageURL());
+    Image newimg5 = icon5.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
+    JButton shoes5 = new JButton(new ImageIcon(newimg5));
 
-    JButton shoes6 = new JButton(new ImageIcon(allShoes[5].getImageURL()));
-    JButton shoes7 = new JButton(new ImageIcon(allShoes[6].getImageURL()));
-    JButton shoes8 = new JButton(new ImageIcon(allShoes[7].getImageURL()));
-    JButton shoes9 = new JButton(new ImageIcon(allShoes[8].getImageURL()));
-    JButton shoes10 = new JButton(new ImageIcon(allShoes[9].getImageURL()));
+    ImageIcon icon6 = new ImageIcon(allShoes[5].getImageURL());
+    Image newimg6 = icon6.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
+    JButton shoes6 = new JButton(new ImageIcon(newimg6));
+    ImageIcon icon7 = new ImageIcon(allShoes[6].getImageURL());
+    Image newimg7 = icon7.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
+    JButton shoes7 = new JButton(new ImageIcon(newimg7));
+    ImageIcon icon8 = new ImageIcon(allShoes[7].getImageURL());
+    Image newimg8 = icon8.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
+    JButton shoes8 = new JButton(new ImageIcon(newimg8));
+    ImageIcon icon9 = new ImageIcon(allShoes[8].getImageURL());
+    Image newimg9 = icon9.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
+    JButton shoes9 = new JButton(new ImageIcon(newimg9));
+    ImageIcon icon10 = new ImageIcon(allShoes[9].getImageURL());
+    Image newimg10 = icon10.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
+    JButton shoes10 = new JButton(new ImageIcon(newimg10));
 
-    JButton shoes11 = new JButton(new ImageIcon(allShoes[10].getImageURL()));
-    JButton shoes12 = new JButton(new ImageIcon(allShoes[11].getImageURL()));
-    JButton shoes13 = new JButton(new ImageIcon(allShoes[12].getImageURL()));
-    JButton shoes14 = new JButton(new ImageIcon(allShoes[13].getImageURL()));
-    JButton shoes15 = new JButton(new ImageIcon(allShoes[14].getImageURL()));
+    ImageIcon icon11 = new ImageIcon(allShoes[10].getImageURL());
+    Image newimg11 = icon11.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
+    JButton shoes11 = new JButton(new ImageIcon(newimg11));
+    ImageIcon icon12 = new ImageIcon(allShoes[11].getImageURL());
+    Image newimg12 = icon12.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
+    JButton shoes12 = new JButton(new ImageIcon(newimg12));
+    ImageIcon icon13 = new ImageIcon(allShoes[12].getImageURL());
+    Image newimg13 = icon13.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
+    JButton shoes13 = new JButton(new ImageIcon(newimg13));
+    ImageIcon icon14 = new ImageIcon(allShoes[13].getImageURL());
+    Image newimg14 = icon14.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
+    JButton shoes14 = new JButton(new ImageIcon(newimg14));
+    ImageIcon icon15 = new ImageIcon(allShoes[14].getImageURL());
+    Image newimg15 = icon15.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
+    JButton shoes15 = new JButton(new ImageIcon(newimg15));
 
-    JButton shoes16 = new JButton(new ImageIcon(allShoes[15].getImageURL()));
-    JButton shoes17 = new JButton(new ImageIcon(allShoes[16].getImageURL()));
-    JButton shoes18 = new JButton(new ImageIcon(allShoes[17].getImageURL()));
-    JButton shoes19 = new JButton(new ImageIcon(allShoes[18].getImageURL()));
-    JButton shoes20 = new JButton(new ImageIcon(allShoes[19].getImageURL()));
+    ImageIcon icon16 = new ImageIcon(allShoes[15].getImageURL());
+    Image newimg16 = icon16.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
+    JButton shoes16 = new JButton(new ImageIcon(newimg16));
+    ImageIcon icon17 = new ImageIcon(allShoes[16].getImageURL());
+    Image newimg17 = icon17.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
+    JButton shoes17 = new JButton(new ImageIcon(newimg17));
+    ImageIcon icon18 = new ImageIcon(allShoes[17].getImageURL());
+    Image newimg18 = icon18.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
+    JButton shoes18 = new JButton(new ImageIcon(newimg18));
+    ImageIcon icon19 = new ImageIcon(allShoes[18].getImageURL());
+    Image newimg19 = icon19.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
+    JButton shoes19 = new JButton(new ImageIcon(newimg19));
+    ImageIcon icon20 = new ImageIcon(allShoes[19].getImageURL());
+    Image newimg20 = icon20.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
+    JButton shoes20 = new JButton(new ImageIcon(newimg20));
 
     public ShoesGUI(){
         setLayout(new GridLayout(4, 5));
@@ -133,14 +176,32 @@ public class ShoesGUI extends JFrame implements ActionListener {
         }
 
         if (selectedShoes.size() == 3) {
+            ShoesGUI shoesGUI = new ShoesGUI();
+            shoesGUI.setVisible(true);
             dispose();
         }
     
     }
 
     public ArrayList<Shoes> getSelectedShoes(){
-        dispose();
         return selectedShoes;
+    }
+
+    public static void main(String[] args) {
+        DressUpGame.populateShoes(); //we need to make sure this is done in the main main, not just here
+
+        try {
+            MetalLookAndFeel.setCurrentTheme(new ourTheme());
+            UIManager.setLookAndFeel(new MetalLookAndFeel());
+        }
+        catch (Exception e) {
+            System.out.println("Look and Feel not set");
+        }
+
+        ShoesGUI shoesFrame = new ShoesGUI();
+        shoesFrame.setTitle("Machine Dressing");
+        shoesFrame.setSize(800, 900);
+        shoesFrame.setVisible(true);
     }
 
 }
