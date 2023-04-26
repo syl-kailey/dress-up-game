@@ -88,6 +88,9 @@ public class StartPageGUI extends JFrame implements ActionListener{
     }
 
     public static void main(String args[]){
+        DressUpGame.populateBottoms();
+        DressUpGame.populateShoes();
+        DressUpGame.populateTops();
 
         try {
             MetalLookAndFeel.setCurrentTheme(new ourTheme());
