@@ -9,21 +9,21 @@ import javax.swing.plaf.metal.MetalLookAndFeel;
 public class DressUpGame {
     User user1;
     User user2;
-    Outfit finalOutfit;
-    List<String> colors;
-    List<String> patterns;
-    List<String> aesthetics;
+    static Outfit finalOutfit;
+    static List<String> colors;
+    static List<String> patterns;
+    static List<String> aesthetics;
     List<String> favoritePattern;
     static Top[] allTops;
     static Bottom[] allBottoms;
     static Shoes[] allShoes;
-    public Outfit[] allOutfits;
-    List<Outfit> patternOutfits;
-    List<Outfit> colorOutfits;
-    List<Outfit> aestheticOutfits;
+    public static Outfit[] allOutfits;
+    static List<Outfit> patternOutfits;
+    static List<Outfit> colorOutfits;
+    static List<Outfit> aestheticOutfits;
     static Boolean outfitSelected = false;
 
-    public List<String> favoriteColor(User user1, User user2){
+    public static List<String> favoriteColor(User user1, User user2){
         List<String> colors1 = user1.preferredColors();
         List<String> colors2 = user2.preferredColors();
         
@@ -44,7 +44,7 @@ public class DressUpGame {
         return colors;
     }
 
-    public List<String> favoritePattern(User user1, User user2){
+    public static List<String> favoritePattern(User user1, User user2){
         List<String> patterns1 = user1.preferredPatterns();
         List<String> patterns2 = user2.preferredPatterns();
         
@@ -65,7 +65,7 @@ public class DressUpGame {
         return patterns;
     }
 
-    public List<String> favoriteAesthetic(User user1, User user2){
+    public static List<String> favoriteAesthetic(User user1, User user2){
         List<String> aes1 = user1.preferredAesthetics();
         List<String> aes2 = user2.preferredAesthetics();
         
@@ -185,7 +185,7 @@ public class DressUpGame {
     }
 
 
-    Outfit selectOutfit(){//i removed parameters because theyre already global variables
+    public static Outfit selectOutfit(){//i removed parameters because theyre already global variables
 
         //if length of colors is 1
             //find outfits with that color

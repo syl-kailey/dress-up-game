@@ -12,7 +12,7 @@ import javax.swing.plaf.metal.MetalLookAndFeel;
 
 public class ShirtGUI extends JFrame implements ActionListener {
 
-
+    User user;
     ArrayList<Top> selectedTops = new ArrayList<Top>();
     Top[] allTops = DressUpGame.allTops;
 
@@ -81,7 +81,8 @@ public class ShirtGUI extends JFrame implements ActionListener {
     Image newimg20 = icon20.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
     JButton top20 = new JButton(new ImageIcon(newimg20));
 
-    public ShirtGUI(){
+    public ShirtGUI(User user){
+        this.user = user;
         setLayout(new GridLayout(4, 5));
 
         add(top1);
@@ -198,7 +199,9 @@ public class ShirtGUI extends JFrame implements ActionListener {
         }
 
         if (selectedTops.size() == 3) {
-            BottomsGUI bottomsGUI = new BottomsGUI();
+            System.out.println(user);
+            user.giveTops(selectedTops);
+            BottomsGUI bottomsGUI = new BottomsGUI(user);
             bottomsGUI.setVisible(true);
             dispose();
         }
@@ -219,7 +222,7 @@ public class ShirtGUI extends JFrame implements ActionListener {
             System.out.println("Look and Feel not set");
         }
 
-        ShirtGUI topsFrame = new ShirtGUI();
+        ShirtGUI topsFrame = new ShirtGUI(null);
         topsFrame.setTitle("Machine Dressing");
         topsFrame.setSize(800, 600);
         topsFrame.setVisible(true);
