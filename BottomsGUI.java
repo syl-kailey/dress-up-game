@@ -212,7 +212,7 @@ public class BottomsGUI extends JFrame implements ActionListener {
     public ArrayList<Bottom> getSelectedBottoms(){
         return selectedBottoms;
     }
-    public static void start() {
+    public static void start(User user) {
 
         try {
             MetalLookAndFeel.setCurrentTheme(new ourTheme());
@@ -222,8 +222,10 @@ public class BottomsGUI extends JFrame implements ActionListener {
             System.out.println("Look and Feel not set");
         }
 
+        String title = user.getName() + " Bottoms Interface";
+
         BottomsGUI bottomsFrame = new BottomsGUI(null);
-        bottomsFrame.setTitle("Machine Dressing");
+        bottomsFrame.setTitle(title);
         bottomsFrame.setSize(800, 600);
         bottomsFrame.setVisible(true);
     }

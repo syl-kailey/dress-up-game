@@ -212,7 +212,7 @@ public class ShoesGUI extends JFrame implements ActionListener {
         return selectedShoes;
     }
 
-    public static void start() {
+    public static void start(User user) {
         //DressUpGame.populateShoes(); //we need to make sure this is done in the main main, not just here
 
         try {
@@ -223,8 +223,10 @@ public class ShoesGUI extends JFrame implements ActionListener {
             System.out.println("Look and Feel not set");
         }
 
+        String title = user.getName() + " Shoes Interface";
+
         ShoesGUI shoesFrame = new ShoesGUI(null);
-        shoesFrame.setTitle("Machine Dressing");
+        shoesFrame.setTitle(title);
         shoesFrame.setSize(800, 600);
         shoesFrame.setVisible(true);
     }

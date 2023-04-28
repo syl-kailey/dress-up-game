@@ -9,15 +9,22 @@ public class User {
     List<String> patterns;
     List<String> aesthetics;
     Outfit[] allOutfits;
+    String name;
 
 
-    public User(){
+    public User(String name){
+        this.name = name;
         tops = null;
         bottoms =null;
         shoes = null;
     }
 
-    public User (List<Top> tops, List<Bottom> bottoms, List<Shoes> shoes, Outfit[] allOutfits){
+    public String getName(){
+        return name;
+    }
+
+
+    public void insertClothes (List<Top> tops, List<Bottom> bottoms, List<Shoes> shoes, Outfit[] allOutfits){
         this.tops = tops;
         this.bottoms = bottoms;
         this.shoes = shoes;
