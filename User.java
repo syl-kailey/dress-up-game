@@ -31,7 +31,7 @@ public class User {
         this.allOutfits = allOutfits;
     }
 
-    public void giveTops(List<Top> t){
+    public void insertTops(ArrayList<Top> t){
         tops = t;
     }
 

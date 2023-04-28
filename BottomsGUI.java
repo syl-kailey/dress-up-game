@@ -224,7 +224,7 @@ public class BottomsGUI extends JFrame implements ActionListener {
 
         String title = user.getName() + " Bottoms Interface";
 
-        BottomsGUI bottomsFrame = new BottomsGUI(null);
+        BottomsGUI bottomsFrame = new BottomsGUI(user);
         bottomsFrame.setTitle(title);
         bottomsFrame.setSize(800, 600);
         bottomsFrame.setVisible(true);

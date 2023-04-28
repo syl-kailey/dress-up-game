@@ -205,20 +205,17 @@ public class ShirtGUI extends JFrame implements ActionListener {
 
         if (selectedTops.size() == 3) {
             getUser();
-            finishTops(user);
+            finishTops(user, selectedTops);
         }
     
     }
 
-    public void finishTops(User user){
-
-        if (selectedTops.size() == 3) {
-            System.out.println(user);
-            user.giveTops(selectedTops);
-            BottomsGUI bottomsFrame = new BottomsGUI(user);
-            bottomsFrame.start(user);
-            dispose();
-        }
+    public void finishTops(User user, ArrayList<Top> selectedTops){
+        System.out.println(user.getName());
+        user.insertTops(selectedTops);
+        BottomsGUI bottomsGUI = new BottomsGUI(user);
+        bottomsGUI.start(user);
+        dispose();
     }
 
     public ArrayList<Top> getSelectedTops(){
@@ -237,9 +234,9 @@ public class ShirtGUI extends JFrame implements ActionListener {
 
         String title = user.getName() + " Shirts Interface";
 
-        ShirtGUI topsFrame = new ShirtGUI(null);
+        ShirtGUI topsFrame = new ShirtGUI(user);
         topsFrame.setTitle(title);
-        topsFrame.setSize(800, 600);
+        topsFrame.setSize(400, 300);
         topsFrame.setVisible(true);
     }
 
