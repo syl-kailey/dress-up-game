@@ -83,6 +83,7 @@ public class ShirtGUI extends JFrame implements ActionListener {
 
     public ShirtGUI(User user){
         this.user = user;
+        System.out.println("user test");
         setLayout(new GridLayout(4, 5));
 
         add(top1);
@@ -213,8 +214,8 @@ public class ShirtGUI extends JFrame implements ActionListener {
     public void finishTops(User user, ArrayList<Top> selectedTops){
         System.out.println(user.getName());
         user.insertTops(selectedTops);
-        BottomsGUI bottomsGUI = new BottomsGUI(user);
-        bottomsGUI.start(user);
+        BottomsGUI bottomsFrame = new BottomsGUI(user);
+        bottomsFrame.start(user, bottomsFrame);
         dispose();
     }
 
@@ -222,7 +223,7 @@ public class ShirtGUI extends JFrame implements ActionListener {
         return selectedTops;
     }
 
-    public static void start(User user) {
+    public static void start(User user, Frame frame) {
 
         try {
             MetalLookAndFeel.setCurrentTheme(new ourTheme());
@@ -234,10 +235,9 @@ public class ShirtGUI extends JFrame implements ActionListener {
 
         String title = user.getName() + " Shirts Interface";
 
-        ShirtGUI topsFrame = new ShirtGUI(user);
-        topsFrame.setTitle(title);
-        topsFrame.setSize(400, 300);
-        topsFrame.setVisible(true);
+        frame.setTitle(title);
+        frame.setSize(800, 600);
+        frame.setVisible(true);
     }
 
 }

@@ -198,21 +198,33 @@ public class ShoesGUI extends JFrame implements ActionListener {
         }
 
         if (selectedShoes.size() == 3) {
-            user.shoes = selectedShoes;
-            /* 
-            ShoesGUI shoesGUI = new ShoesGUI();
-            shoesGUI.setVisible(true);
-            */
-            dispose();
+            getUser();
+            finishShoes(user, selectedShoes);
         }
     
+    }
+
+    public User getUser(){
+        return user;
+    }
+
+    public void finishShoes(User user, ArrayList<Shoes> selectedShoes){
+        System.out.println(user.getName());
+        user.insertShoes(selectedShoes);
+        
+        user.preferredColors();
+        user.preferredAesthetics();
+        user.preferredPatterns();
+        System.out.println(user.preferredAesthetics());
+
+        dispose();
     }
 
     public ArrayList<Shoes> getSelectedShoes(){
         return selectedShoes;
     }
 
-    public static void start(User user) {
+    public static void start(User user, Frame frame) {
         //DressUpGame.populateShoes(); //we need to make sure this is done in the main main, not just here
 
         try {
@@ -225,10 +237,11 @@ public class ShoesGUI extends JFrame implements ActionListener {
 
         String title = user.getName() + " Shoes Interface";
 
-        ShoesGUI shoesFrame = new ShoesGUI(null);
-        shoesFrame.setTitle(title);
-        shoesFrame.setSize(800, 600);
-        shoesFrame.setVisible(true);
+        frame.setTitle(title);
+        frame.setSize(800, 600);
+        frame.setVisible(true);
     }
+
+    
 
 }

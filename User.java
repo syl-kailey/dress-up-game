@@ -31,8 +31,17 @@ public class User {
         this.allOutfits = allOutfits;
     }
 
-    public void insertTops(ArrayList<Top> t){
-        tops = t;
+    public void insertTops(ArrayList<Top> tops){
+        tops = tops;
+    }
+
+    public void insertBottoms(ArrayList<Bottom> bottoms){
+        bottoms = bottoms;
+    }
+
+    public void insertShoes(ArrayList<Shoes> shoes){
+        shoes = shoes;
+        System.out.println(shoes.toString());
     }
 
     public List<String> preferredColors(){

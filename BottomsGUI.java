@@ -199,20 +199,28 @@ public class BottomsGUI extends JFrame implements ActionListener {
         }
 
         if (selectedBottoms.size() == 3) {
-            user.bottoms = selectedBottoms;
-            ShoesGUI shoesGUI = new ShoesGUI(user);
-            shoesGUI.setVisible(true);//need to call an actual method like main to populate shoes, set theme, etc
-            //alternatively, we could just return to the method we call this from and call shoes from there but either
-            // way we still need a method in shoes (and bottoms and shirts) to be called that isnt a main
-            dispose();
+            getUser();
+            finishBottoms(user, selectedBottoms);
         }
     
+    }
+
+    public User getUser(){
+        return user;
+    }
+
+    public void finishBottoms(User user, ArrayList<Bottom> selectedBottoms){
+        System.out.println(user.getName());
+        user.insertBottoms(selectedBottoms);
+        ShoesGUI shoesFrame = new ShoesGUI(user);
+        shoesFrame.start(user, shoesFrame);
+        dispose();
     }
 
     public ArrayList<Bottom> getSelectedBottoms(){
         return selectedBottoms;
     }
-    public static void start(User user) {
+    public static void start(User user, Frame bottomsFrame) {
 
         try {
             MetalLookAndFeel.setCurrentTheme(new ourTheme());
@@ -223,8 +231,6 @@ public class BottomsGUI extends JFrame implements ActionListener {
         }
 
         String title = user.getName() + " Bottoms Interface";
-
-        BottomsGUI bottomsFrame = new BottomsGUI(user);
         bottomsFrame.setTitle(title);
         bottomsFrame.setSize(800, 600);
         bottomsFrame.setVisible(true);
