@@ -11,11 +11,21 @@ public class User {
     Outfit[] allOutfits;
 
 
+    public User(){
+        tops = null;
+        bottoms =null;
+        shoes = null;
+    }
+
     public User (List<Top> tops, List<Bottom> bottoms, List<Shoes> shoes, Outfit[] allOutfits){
         this.tops = tops;
         this.bottoms = bottoms;
         this.shoes = shoes;
         this.allOutfits = allOutfits;
+    }
+
+    public void giveTops(List<Top> t){
+        tops = t;
     }
 
     public List<String> preferredColors(){

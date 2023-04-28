@@ -11,6 +11,7 @@ import javax.swing.plaf.metal.MetalLookAndFeel;
 
 public class BottomsGUI extends JFrame implements ActionListener {
 
+    User user;
     ArrayList<Bottom> selectedBottoms = new ArrayList<Bottom>();
     Bottom[] allBottoms = DressUpGame.allBottoms;
 
@@ -78,7 +79,8 @@ public class BottomsGUI extends JFrame implements ActionListener {
     Image newimg20 = icon20.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
     JButton bottom20 = new JButton(new ImageIcon(newimg20));
 
-    public BottomsGUI(){
+    public BottomsGUI(User user){
+        this.user = user;
         setLayout(new GridLayout(4, 5));
 
         add(bottom1);
@@ -132,7 +134,7 @@ public class BottomsGUI extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         
         JButton button = (JButton) e.getSource();
-        button.setForeground(Color.PINK); 
+        //button.setForeground(Color.PINK); 
 
         if (button == bottom1) {
             selectedBottoms.add(allBottoms[0]);
@@ -197,7 +199,8 @@ public class BottomsGUI extends JFrame implements ActionListener {
         }
 
         if (selectedBottoms.size() == 3) {
-            ShoesGUI shoesGUI = new ShoesGUI();
+            user.bottoms = selectedBottoms;
+            ShoesGUI shoesGUI = new ShoesGUI(user);
             shoesGUI.setVisible(true);//need to call an actual method like main to populate shoes, set theme, etc
             //alternatively, we could just return to the method we call this from and call shoes from there but either
             // way we still need a method in shoes (and bottoms and shirts) to be called that isnt a main
@@ -219,7 +222,7 @@ public class BottomsGUI extends JFrame implements ActionListener {
             System.out.println("Look and Feel not set");
         }
 
-        BottomsGUI bottomsFrame = new BottomsGUI();
+        BottomsGUI bottomsFrame = new BottomsGUI(null);
         bottomsFrame.setTitle("Machine Dressing");
         bottomsFrame.setSize(800, 600);
         bottomsFrame.setVisible(true);

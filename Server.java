@@ -10,6 +10,7 @@ public class Server {
     ServerSocket serverSocket;    
     ArrayList<Socket> clients = new ArrayList<>(); 
     ArrayList<String> usernames = new ArrayList<>();  
+    static User[] users = new User[2];
 
     public Server (int port) {
 
@@ -21,9 +22,13 @@ public class Server {
         }
 
     }
-    
-    public synchronized void serve() {
 
+
+    
+    public void serve() {
+
+        users[0] = new User();
+        users[1] = new User();
         // server waits for two clients to connect 
 
         //while(clients.size() < 2) {
@@ -56,57 +61,21 @@ public class Server {
             ArrayList<Bottom> list2 = new ArrayList<>();
             ArrayList<Shoes> list3 = new ArrayList<>(); 
 
-            ShirtGUI shirtGUI = new ShirtGUI();
+            int thisUser = clients.size()-1;//will be 0 or 1
+
+            while (clients.size() < 2){
+                //should add some kinda waiting screen
+                System.out.print("waiting");
+            }
+
+            ShirtGUI shirtGUI = new ShirtGUI(users[thisUser]);
             shirtGUI.start();
-            /* 
-            // server displays shirtsGUI to both users and waits for users to each select 3 items, then closes window
-            while (true) {
-
-                if (shirtGUI.getSelectedTops().size() == 3) {
-                    list1 = shirtGUI.getSelectedTops(); 
-
-                    shirtGUI.dispose();
-                    break; 
-                }
-            }
-
-            // repeat for bottomsGUI 
-            BottomsGUI bottomsGUI = new BottomsGUI();
-            //bottomsGUI.start();
-
-            while (true) {
-
-                if (bottomsGUI.getSelectedBottoms().size() == 3) {
-                    list2 = bottomsGUI.getSelectedBottoms(); 
-
-                    bottomsGUI.dispose(); 
-                    break; 
-                }
-            }
-
-            // and shoesGUI 
-            ShoesGUI shoesGUI = new ShoesGUI(); 
-            shoesGUI.start();
-
-            while (true) {
-
-                if (shoesGUI.getSelectedShoes().size() == 3) {
-                    list3 = shoesGUI.getSelectedShoes(); 
-
-                    shoesGUI.dispose(); 
-                    break; 
-                }
-            }
-
-            // analyze preferred characteristics and determine outfits 
-
-            // finally, open window with new doll 
-            */
+            
             while (DressUpGame.outfitSelected == false){
                 
             }
             DollGUI dollGUI = new DollGUI();
-            dollGUI.setVisible(true);
+            dollGUI.start();
         }
     }
 
@@ -117,14 +86,13 @@ public class Server {
         Server server = new Server(Integer.parseInt(args[0])); 
         server.serve();
 
-        //wait until two people connected to run first GUI
-        int connectedUsers = 0;
-        while (connectedUsers < 2){
-
-            connectedUsers++;
+        while ((users[0] != null) && (users[1] != null) && ((users[0].shoes == null) || (users[1].shoes == null))){
+            
         }
-        //ShirtGUI shirtGUI = new ShirtGUI();
-        //shirtGUI.start();
+        DressUpGame.favoriteColor(users[0], users[1]);
+        DressUpGame.favoritePattern(users[0], users[1]);
+        DressUpGame.favoriteAesthetic(users[0], users[1]);
+        DressUpGame.selectOutfit();
     }
 
 }

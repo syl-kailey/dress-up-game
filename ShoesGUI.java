@@ -11,6 +11,7 @@ import javax.swing.plaf.metal.MetalLookAndFeel;
 
 public class ShoesGUI extends JFrame implements ActionListener {
 
+    User user;
     ArrayList<Shoes> selectedShoes = new ArrayList<Shoes>();
     Shoes[] allShoes = DressUpGame.allShoes;
 
@@ -78,7 +79,8 @@ public class ShoesGUI extends JFrame implements ActionListener {
     Image newimg20 = icon20.getImage().getScaledInstance(400, 254, java.awt.Image.SCALE_SMOOTH);
     JButton shoes20 = new JButton(new ImageIcon(newimg20));
 
-    public ShoesGUI(){
+    public ShoesGUI(User user){
+        this.user = user;
         setLayout(new GridLayout(4, 5));
 
         add(shoes1);
@@ -196,6 +198,7 @@ public class ShoesGUI extends JFrame implements ActionListener {
         }
 
         if (selectedShoes.size() == 3) {
+            user.shoes = selectedShoes;
             /* 
             ShoesGUI shoesGUI = new ShoesGUI();
             shoesGUI.setVisible(true);
@@ -220,9 +223,9 @@ public class ShoesGUI extends JFrame implements ActionListener {
             System.out.println("Look and Feel not set");
         }
 
-        ShoesGUI shoesFrame = new ShoesGUI();
+        ShoesGUI shoesFrame = new ShoesGUI(null);
         shoesFrame.setTitle("Machine Dressing");
-        shoesFrame.setSize(800, 900);
+        shoesFrame.setSize(800, 600);
         shoesFrame.setVisible(true);
     }
 
