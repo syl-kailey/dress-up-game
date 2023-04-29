@@ -198,21 +198,33 @@ public class ShoesGUI extends JFrame implements ActionListener {
         }
 
         if (selectedShoes.size() == 3) {
-            user.shoes = selectedShoes;
-            /* 
-            ShoesGUI shoesGUI = new ShoesGUI();
-            shoesGUI.setVisible(true);
-            */
-            dispose();
+            getUser();
+            finishShoes(user, selectedShoes);
         }
     
+    }
+
+    public User getUser(){
+        return user;
+    }
+
+    public void finishShoes(User user, ArrayList<Shoes> selectedShoes){
+        System.out.println(user.getName());
+        user.insertShoes(selectedShoes);
+        
+        user.preferredColors();
+        user.preferredAesthetics();
+        user.preferredPatterns();
+        System.out.println(user.preferredAesthetics());
+
+        dispose();
     }
 
     public ArrayList<Shoes> getSelectedShoes(){
         return selectedShoes;
     }
 
-    public static void start() {
+    public static void start(User user, Frame frame) {
         //DressUpGame.populateShoes(); //we need to make sure this is done in the main main, not just here
 
         try {
@@ -223,10 +235,13 @@ public class ShoesGUI extends JFrame implements ActionListener {
             System.out.println("Look and Feel not set");
         }
 
-        ShoesGUI shoesFrame = new ShoesGUI(null);
-        shoesFrame.setTitle("Machine Dressing");
-        shoesFrame.setSize(800, 600);
-        shoesFrame.setVisible(true);
+        String title = user.getName() + " Shoes Interface";
+
+        frame.setTitle(title);
+        frame.setSize(800, 600);
+        frame.setVisible(true);
     }
+
+    
 
 }

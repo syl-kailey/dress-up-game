@@ -84,7 +84,7 @@ public class StartPageGUI extends JFrame implements ActionListener{
         ClientHandler client = new ClientHandler(socket);
         client.start();
         isConnected = true;
-        this.dispose(); 
+        this.dispose();
     }
 
     public static void main(String args[]){
@@ -102,7 +102,7 @@ public class StartPageGUI extends JFrame implements ActionListener{
         StartPageGUI startFrame = new StartPageGUI();
 
         startFrame.setTitle("Machine Dressing");
-        startFrame.setSize(300, 300);
+        startFrame.setSize(400, 400);
         startFrame.setVisible(true);
 
     }
