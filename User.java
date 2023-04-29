@@ -15,6 +15,10 @@ public class User {
         tops = null;
         bottoms =null;
         shoes = null;
+        colors = new ArrayList<String>();
+        patterns = new ArrayList<String>();
+        aesthetics = new ArrayList<String>();
+        this.allOutfits = DressUpGame.allOutfits;
     }
 
     public User (List<Top> tops, List<Bottom> bottoms, List<Shoes> shoes, Outfit[] allOutfits){
@@ -22,6 +26,9 @@ public class User {
         this.bottoms = bottoms;
         this.shoes = shoes;
         this.allOutfits = allOutfits;
+        colors = new ArrayList<String>();
+        patterns = new ArrayList<String>();
+        aesthetics = new ArrayList<String>();
     }
 
     public void giveTops(List<Top> t){

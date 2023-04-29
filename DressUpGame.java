@@ -21,11 +21,11 @@ public class DressUpGame {
     static List<Outfit> patternOutfits;
     static List<Outfit> colorOutfits;
     static List<Outfit> aestheticOutfits;
-    static Boolean outfitSelected = false;
 
     public static List<String> favoriteColor(User user1, User user2){
         List<String> colors1 = user1.preferredColors();
         List<String> colors2 = user2.preferredColors();
+        colors = new ArrayList<String>();
         
         //look through user1's list and compare with user2's list
         //if anything matches, that is the only item in the list
@@ -47,6 +47,7 @@ public class DressUpGame {
     public static List<String> favoritePattern(User user1, User user2){
         List<String> patterns1 = user1.preferredPatterns();
         List<String> patterns2 = user2.preferredPatterns();
+        patterns = new ArrayList<String>();
         
         //look through user1's list and compare with user2's list
         //if anything matches, that is the only item in the list
@@ -68,6 +69,7 @@ public class DressUpGame {
     public static List<String> favoriteAesthetic(User user1, User user2){
         List<String> aes1 = user1.preferredAesthetics();
         List<String> aes2 = user2.preferredAesthetics();
+        aesthetics = new ArrayList<String>();
         
         //look through user1's list and compare with user2's list
         //if anything matches, that is the only item in the list
@@ -159,7 +161,7 @@ public class DressUpGame {
         allShoes[19] = new Shoes(19, "./allpngs/shoes20 .png");
     }
 
-    void populateOutfit(){//in spreadsheet all outfit numbers are +1
+    static void populateOutfit(){//in spreadsheet all outfit numbers are +1
         allOutfits = new Outfit[20];
         allOutfits[0] = new Outfit(allTops[0], allBottoms[0], allShoes[0], "pink", "floral", "casual", 0);
         allOutfits[1] = new Outfit(allTops[1], allBottoms[1], allShoes[1], "blue", "floral", "casual", 1);
@@ -186,7 +188,9 @@ public class DressUpGame {
 
 
     public static Outfit selectOutfit(){//i removed parameters because theyre already global variables
-
+        colorOutfits = new ArrayList<Outfit>();
+        patternOutfits = new ArrayList<Outfit>();
+        aestheticOutfits = new ArrayList<Outfit>();
         //if length of colors is 1
             //find outfits with that color
             //colorOutfits
@@ -245,7 +249,7 @@ public class DressUpGame {
             //if length of list is one
             //that outfit is finalOutfit
 
-        List<Outfit> potentialOutfits = null;
+        List<Outfit> potentialOutfits = new ArrayList<Outfit>();
         for (Outfit o : colorOutfits){
             if (aestheticOutfits.contains(o) && patternOutfits.contains(o)){
                 finalOutfit = o;
@@ -267,7 +271,6 @@ public class DressUpGame {
             potentialOutfits.add(aestheticOutfits.get(0));
         }
         finalOutfit = potentialOutfits.get((int)(Math.random()*potentialOutfits.size()));//again, should probably check my math
-        outfitSelected = true;
         return finalOutfit ;
     }
 

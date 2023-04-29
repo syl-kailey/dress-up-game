@@ -10,7 +10,8 @@ public class Server {
     ServerSocket serverSocket;    
     ArrayList<Socket> clients = new ArrayList<>(); 
     ArrayList<String> usernames = new ArrayList<>();  
-    static User[] users = new User[2];
+    public static User[] users = new User[2];
+    static ArrayList<User> completeUsers = new ArrayList();
 
     public Server (int port) {
 
@@ -32,7 +33,7 @@ public class Server {
         // server waits for two clients to connect 
 
         //while(clients.size() < 2) {
-        while(true) {
+        while(clients.size()<2) {
             try{
                 Socket clientSocket = serverSocket.accept();
                 //String username = GWackClientGUI.username; 
@@ -45,6 +46,14 @@ public class Server {
                 System.out.println("error"); 
             }
         }
+        
+        while (completeUsers.size()<2){
+            System.out.print(1);
+        }
+        DressUpGame.favoriteColor(completeUsers.get(0), completeUsers.get(1));
+        DressUpGame.favoritePattern(completeUsers.get(0), completeUsers.get(1));
+        DressUpGame.favoriteAesthetic(completeUsers.get(0), completeUsers.get(1));
+        DressUpGame.selectOutfit();
     }
 
     private class ClientHandler extends Thread {
@@ -69,23 +78,29 @@ public class Server {
             }
 
             ShirtGUI shirtGUI = new ShirtGUI(users[thisUser]);
-            shirtGUI.start();
+            shirtGUI.start(shirtGUI);
             
-            while (DressUpGame.outfitSelected == false){
-                
+            while (DressUpGame.finalOutfit == null){
+                System.out.print(2);
             }
             DollGUI dollGUI = new DollGUI();
             dollGUI.start();
         }
     }
 
+    public static void setUsers(User user){
+        completeUsers.add(user);
+    }
+
     public static void main(String args[]){
         DressUpGame.populateTops(); 
         DressUpGame.populateBottoms();
         DressUpGame.populateShoes();
+        DressUpGame.populateOutfit();
         Server server = new Server(Integer.parseInt(args[0])); 
         server.serve();
 
+        /* 
         while ((users[0] != null) && (users[1] != null) && ((users[0].shoes == null) || (users[1].shoes == null))){
             
         }
@@ -93,6 +108,7 @@ public class Server {
         DressUpGame.favoritePattern(users[0], users[1]);
         DressUpGame.favoriteAesthetic(users[0], users[1]);
         DressUpGame.selectOutfit();
+        */
     }
 
 }

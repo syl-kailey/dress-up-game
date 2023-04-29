@@ -43,6 +43,7 @@ public class DollGUI extends JFrame  {
         }
 
         System.out.println("i exist");
+        System.out.println(DressUpGame.finalOutfit);
         /*
         ShirtGUI topsFrame = new ShirtGUI(null);
         topsFrame.setTitle("Machine Dressing");
