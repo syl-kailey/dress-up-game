@@ -63,6 +63,7 @@ public class Server {
         DressUpGame.populateTops(); 
         DressUpGame.populateBottoms();
         DressUpGame.populateShoes();
+        
         try {
             MetalLookAndFeel.setCurrentTheme(new ourTheme());
             UIManager.setLookAndFeel(new MetalLookAndFeel());
@@ -76,9 +77,5 @@ public class Server {
         while ((users[0] != null) && (users[1] != null) && ((users[0].shoes == null) || (users[1].shoes == null))){
             
         }
-        DressUpGame.favoriteColor(users[0], users[1]);
-        DressUpGame.favoritePattern(users[0], users[1]);
-        DressUpGame.favoriteAesthetic(users[0], users[1]);
-        DressUpGame.selectOutfit();
     }
 }

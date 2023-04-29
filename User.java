@@ -5,9 +5,12 @@ public class User {
     List<Top> tops;
     List<Bottom> bottoms;
     List<Shoes> shoes;
-    List<String> colors;
-    List<String> patterns;
-    List<String> aesthetics;
+    static List<String> colors = new ArrayList<>();
+    static List<String> patterns = new ArrayList<>();
+    static List<String> aesthetics = new ArrayList<>();
+    static Top[] allTops;
+    static Bottom[] allBottoms;
+    static Shoes[] allShoes;
     Outfit[] allOutfits;
     String name;
 
@@ -17,11 +20,16 @@ public class User {
         tops = null;
         bottoms =null;
         shoes = null;
+        DressUpGame.populateTops();
+        DressUpGame.populateBottoms();
+        DressUpGame.populateShoes();
+        DressUpGame.populateOutfit();
     }
 
     public String getName(){
         return name;
     }
+    
 
 
     public void insertClothes (List<Top> tops, List<Bottom> bottoms, List<Shoes> shoes, Outfit[] allOutfits){

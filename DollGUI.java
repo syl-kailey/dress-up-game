@@ -15,8 +15,9 @@ public class DollGUI extends JFrame  {
 //implements ActionListener 
 
     JTextArea message; 
+    Outfit outfit;
 
-    public DollGUI(){
+    public DollGUI(Outfit outfit){
         message = new JTextArea("Here is your doll's outfit!");
         message.setEditable(false);
         ImageIcon doll = new ImageIcon("./allpngs/Doll1.png");
@@ -33,7 +34,7 @@ public class DollGUI extends JFrame  {
         this.pack();
     }
 
-    public void start(){
+    public void start(Outfit outfit, Frame frame){
         try {
             MetalLookAndFeel.setCurrentTheme(new ourTheme());
             UIManager.setLookAndFeel(new MetalLookAndFeel());
@@ -42,7 +43,9 @@ public class DollGUI extends JFrame  {
             System.out.println("Look and Feel not set");
         }
 
-        System.out.println("i exist");
+        frame.setTitle("Machine Dressing");
+        frame.setSize(800, 600);
+        frame.setVisible(true);
         /*
         ShirtGUI topsFrame = new ShirtGUI(null);
         topsFrame.setTitle("Machine Dressing");
@@ -51,15 +54,4 @@ public class DollGUI extends JFrame  {
         */
     }
 
-    public static void main (String[] args) {
-        try {
-            MetalLookAndFeel.setCurrentTheme(new ourTheme());
-            UIManager.setLookAndFeel(new MetalLookAndFeel());
-        }
-        catch (Exception e) {
-            System.out.println("Look and Feel not set");
-        }
-        DollGUI sample = new DollGUI(); 
-        sample.setVisible(true);
-    }
 }

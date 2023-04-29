@@ -10,20 +10,44 @@ public class DressUpGame {
     User user1;
     User user2;
     static Outfit finalOutfit;
-    static List<String> colors;
-    static List<String> patterns;
-    static List<String> aesthetics;
+    static List<String> colors = new ArrayList<>();
+    static List<String> patterns = new ArrayList<>();
+    static List<String> aesthetics = new ArrayList<>();
     List<String> favoritePattern;
     static Top[] allTops;
     static Bottom[] allBottoms;
     static Shoes[] allShoes;
     public static Outfit[] allOutfits;
-    static List<Outfit> patternOutfits;
+    static List<Outfit> patternOutfits= new ArrayList<>();
     static List<Outfit> colorOutfits;
     static List<Outfit> aestheticOutfits;
     static Boolean outfitSelected = false;
 
-    public static List<String> favoriteColor(User user1, User user2){
+    public void displayOutfit(User user1, User user2){
+        
+        favoriteColor(user1, user2);
+        favoritePattern(user1, user2);
+        favoriteAesthetic(user1, user2);
+        Outfit outfit = selectOutfit();
+        DollGUI outfitFrame = new DollGUI(outfit);
+        outfitFrame.start(outfit, outfitFrame);
+
+
+    }
+
+    public static void setOutfits(){
+        
+        populateTops();
+        populateBottoms();
+        populateShoes();
+        populateOutfit();
+
+
+    }
+
+
+    
+    public void favoriteColor(User user1, User user2){
         List<String> colors1 = user1.preferredColors();
         List<String> colors2 = user2.preferredColors();
         
@@ -41,10 +65,9 @@ public class DressUpGame {
             colors.add(colors1.get(0));
             colors.add(colors2.get(0));
         }
-        return colors;
     }
 
-    public static List<String> favoritePattern(User user1, User user2){
+    public void favoritePattern(User user1, User user2){
         List<String> patterns1 = user1.preferredPatterns();
         List<String> patterns2 = user2.preferredPatterns();
         
@@ -62,10 +85,9 @@ public class DressUpGame {
             patterns.add(patterns1.get(0));
             patterns.add(patterns2.get(0));
         }
-        return patterns;
     }
 
-    public static List<String> favoriteAesthetic(User user1, User user2){
+    public void favoriteAesthetic(User user1, User user2){
         List<String> aes1 = user1.preferredAesthetics();
         List<String> aes2 = user2.preferredAesthetics();
         
@@ -83,7 +105,6 @@ public class DressUpGame {
             aesthetics.add(aes1.get(0));
             aesthetics.add(aes2.get(0));
         }
-        return aesthetics;
     }
 
     static void populateTops(){
@@ -159,7 +180,7 @@ public class DressUpGame {
         allShoes[19] = new Shoes(19, "./allpngs/shoes20 .png");
     }
 
-    void populateOutfit(){//in spreadsheet all outfit numbers are +1
+    static void populateOutfit(){//in spreadsheet all outfit numbers are +1
         allOutfits = new Outfit[20];
         allOutfits[0] = new Outfit(allTops[0], allBottoms[0], allShoes[0], "pink", "floral", "casual", 0);
         allOutfits[1] = new Outfit(allTops[1], allBottoms[1], allShoes[1], "blue", "floral", "casual", 1);
