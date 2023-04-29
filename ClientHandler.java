@@ -1,41 +1,45 @@
 import java.io.*;
-import java.net.*;
-import java.util.*;
+import java.net.Socket;
+import java.util.ArrayList;
 
-class ClientHandler extends Thread{
+public class ClientHandler extends Thread {
+    Socket socket;
+    User user1;
+    User user2;
+    //String name;
 
-    Socket sock;
-    PrintWriter writer;
-    BufferedReader reader;
-
-
-    public ClientHandler(Socket sock){
-        this.sock=sock;
+    public ClientHandler(Socket socket) {
+        this.socket = socket;
+        //this.name = username; 
     }
 
-    public void run(){
-        try{
-            writer = new PrintWriter(sock.getOutputStream());
-            reader = new BufferedReader(new InputStreamReader(sock.getInputStream()));
-            String key = reader.readLine();
+    public void start(User user1, User user2) {
+        run(user1, user2);
+    }
 
-            if (!key.equals("SECRET_KEY")) {
-                writer.println("Access denied. Invalid secret key.");
-                writer.flush();
-                sock.close();
-                return;
-            } 
+    public void run(User user1, User user2) {
+        try {
+            ArrayList<Top> list1 = new ArrayList<>(); 
+            ArrayList<Bottom> list2 = new ArrayList<>();
+            ArrayList<Shoes> list3 = new ArrayList<>(); 
 
-            //close the connections
-            writer.close();
-            reader.close();
-            sock.close();
+            System.out.println(user1.getName());
+            System.out.println(user2.getName());
+
+            ShirtGUI shirtFrame1 = new ShirtGUI(user1);
+            shirtFrame1.start(user1, shirtFrame1);
+
+            ShirtGUI shirtFrame2 = new ShirtGUI(user2);
+            shirtFrame2.start(user2, shirtFrame2);
+
             
-        }catch(IOException e){
+            while (DressUpGame.outfitSelected == false){
+                
+            }
+            DollGUI dollGUI = new DollGUI();
+            dollGUI.start();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-        //note the loss of the connection
-        System.out.println("Connection lost: "+sock.getRemoteSocketAddress());
     }
-
 }
