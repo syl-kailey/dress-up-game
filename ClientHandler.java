@@ -32,12 +32,6 @@ public class ClientHandler extends Thread {
             ShirtGUI shirtFrame2 = new ShirtGUI(user2);
             shirtFrame2.start(user2, shirtFrame2);
 
-            
-            while (DressUpGame.outfitSelected == false){
-                
-            }
-            DollGUI dollGUI = new DollGUI();
-            dollGUI.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
