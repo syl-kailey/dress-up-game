@@ -212,7 +212,7 @@ public class ShirtGUI extends JFrame implements ActionListener {
         return selectedTops;
     }
 
-    public static void start() {
+    public void start() {
 
         try {
             MetalLookAndFeel.setCurrentTheme(new ourTheme());
