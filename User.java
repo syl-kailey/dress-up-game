@@ -9,39 +9,23 @@ public class User {
     List<String> patterns;
     List<String> aesthetics;
     Outfit[] allOutfits;
-    String name;
 
 
-    public User(String name){
-        this.name = name;
+    public User(){
         tops = null;
         bottoms =null;
         shoes = null;
     }
 
-    public String getName(){
-        return name;
-    }
-
-
-    public void insertClothes (List<Top> tops, List<Bottom> bottoms, List<Shoes> shoes, Outfit[] allOutfits){
+    public User (List<Top> tops, List<Bottom> bottoms, List<Shoes> shoes, Outfit[] allOutfits){
         this.tops = tops;
         this.bottoms = bottoms;
         this.shoes = shoes;
         this.allOutfits = allOutfits;
     }
 
-    public void insertTops(ArrayList<Top> tops){
-        tops = tops;
-    }
-
-    public void insertBottoms(ArrayList<Bottom> bottoms){
-        bottoms = bottoms;
-    }
-
-    public void insertShoes(ArrayList<Shoes> shoes){
-        shoes = shoes;
-        System.out.println(shoes.toString());
+    public void giveTops(List<Top> t){
+        tops = t;
     }
 
     public List<String> preferredColors(){
