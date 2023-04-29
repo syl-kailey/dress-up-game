@@ -83,7 +83,6 @@ public class ShirtGUI extends JFrame implements ActionListener {
 
     public ShirtGUI(User user){
         this.user = user;
-        System.out.println("user test");
         setLayout(new GridLayout(4, 5));
 
         add(top1);
@@ -134,12 +133,7 @@ public class ShirtGUI extends JFrame implements ActionListener {
         //setVisible(true);
     }
 
-    public User getUser(){
-        return user;
-    }
-
     public void actionPerformed(ActionEvent e) {
-        
         
         JButton button = (JButton) e.getSource();
         if (button == top1) {
@@ -205,25 +199,20 @@ public class ShirtGUI extends JFrame implements ActionListener {
         }
 
         if (selectedTops.size() == 3) {
-            getUser();
-            finishTops(user, selectedTops);
+            System.out.println(user);
+            user.giveTops(selectedTops);
+            BottomsGUI bottomsGUI = new BottomsGUI(user);
+            bottomsGUI.setVisible(true);
+            dispose();
         }
     
-    }
-
-    public void finishTops(User user, ArrayList<Top> selectedTops){
-        System.out.println(user.getName());
-        user.insertTops(selectedTops);
-        BottomsGUI bottomsFrame = new BottomsGUI(user);
-        bottomsFrame.start(user, bottomsFrame);
-        dispose();
     }
 
     public ArrayList<Top> getSelectedTops(){
         return selectedTops;
     }
 
-    public static void start(User user, Frame frame) {
+    public static void start() {
 
         try {
             MetalLookAndFeel.setCurrentTheme(new ourTheme());
@@ -233,11 +222,10 @@ public class ShirtGUI extends JFrame implements ActionListener {
             System.out.println("Look and Feel not set");
         }
 
-        String title = user.getName() + " Shirts Interface";
-
-        frame.setTitle(title);
-        frame.setSize(800, 600);
-        frame.setVisible(true);
+        ShirtGUI topsFrame = new ShirtGUI(null);
+        topsFrame.setTitle("Machine Dressing");
+        topsFrame.setSize(800, 600);
+        topsFrame.setVisible(true);
     }
 
 }
