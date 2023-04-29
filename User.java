@@ -5,27 +5,51 @@ public class User {
     List<Top> tops;
     List<Bottom> bottoms;
     List<Shoes> shoes;
-    List<String> colors;
-    List<String> patterns;
-    List<String> aesthetics;
+    static List<String> colors = new ArrayList<>();
+    static List<String> patterns = new ArrayList<>();
+    static List<String> aesthetics = new ArrayList<>();
+    static Top[] allTops;
+    static Bottom[] allBottoms;
+    static Shoes[] allShoes;
     Outfit[] allOutfits;
+    String name;
 
 
-    public User(){
+    public User(String name){
+        this.name = name;
         tops = null;
         bottoms =null;
         shoes = null;
+        DressUpGame.populateTops();
+        DressUpGame.populateBottoms();
+        DressUpGame.populateShoes();
+        DressUpGame.populateOutfit();
     }
 
-    public User (List<Top> tops, List<Bottom> bottoms, List<Shoes> shoes, Outfit[] allOutfits){
+    public String getName(){
+        return name;
+    }
+    
+
+
+    public void insertClothes (List<Top> tops, List<Bottom> bottoms, List<Shoes> shoes, Outfit[] allOutfits){
         this.tops = tops;
         this.bottoms = bottoms;
         this.shoes = shoes;
         this.allOutfits = allOutfits;
     }
 
-    public void giveTops(List<Top> t){
-        tops = t;
+    public void insertTops(ArrayList<Top> tops){
+        this.tops = tops;
+    }
+
+    public void insertBottoms(ArrayList<Bottom> bottoms){
+        this.bottoms = bottoms;
+    }
+
+    public void insertShoes(ArrayList<Shoes> shoes){
+        this.shoes = shoes;
+        System.out.println(shoes.toString());
     }
 
     public List<String> preferredColors(){

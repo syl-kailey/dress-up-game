@@ -83,6 +83,7 @@ public class ShirtGUI extends JFrame implements ActionListener {
 
     public ShirtGUI(User user){
         this.user = user;
+        System.out.println("user test");
         setLayout(new GridLayout(4, 5));
 
         add(top1);
@@ -133,7 +134,12 @@ public class ShirtGUI extends JFrame implements ActionListener {
         //setVisible(true);
     }
 
+    public User getUser(){
+        return user;
+    }
+
     public void actionPerformed(ActionEvent e) {
+        
         
         JButton button = (JButton) e.getSource();
         if (button == top1) {
@@ -199,20 +205,25 @@ public class ShirtGUI extends JFrame implements ActionListener {
         }
 
         if (selectedTops.size() == 3) {
-            System.out.println(user);
-            user.giveTops(selectedTops);
-            BottomsGUI bottomsGUI = new BottomsGUI(user);
-            bottomsGUI.setVisible(true);
-            dispose();
+            getUser();
+            finishTops(user, selectedTops);
         }
     
+    }
+
+    public void finishTops(User user, ArrayList<Top> selectedTops){
+        System.out.println(user.getName());
+        user.insertTops(selectedTops);
+        BottomsGUI bottomsFrame = new BottomsGUI(user);
+        bottomsFrame.start(user, bottomsFrame);
+        dispose();
     }
 
     public ArrayList<Top> getSelectedTops(){
         return selectedTops;
     }
 
-    public void start() {
+    public static void start(User user, Frame frame) {
 
         try {
             MetalLookAndFeel.setCurrentTheme(new ourTheme());
@@ -222,10 +233,11 @@ public class ShirtGUI extends JFrame implements ActionListener {
             System.out.println("Look and Feel not set");
         }
 
-        ShirtGUI topsFrame = new ShirtGUI(null);
-        topsFrame.setTitle("Machine Dressing");
-        topsFrame.setSize(800, 600);
-        topsFrame.setVisible(true);
+        String title = user.getName() + " Shirts Interface";
+
+        frame.setTitle(title);
+        frame.setSize(800, 600);
+        frame.setVisible(true);
     }
 
 }
