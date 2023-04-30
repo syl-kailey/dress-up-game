@@ -16,7 +16,7 @@ public class DollGUI extends JFrame implements ActionListener {
     String[] hairstyles = new String[12];
     String[] dolls = new String[4];
 
-    JTextArea message; 
+    JLabel message; 
     ImageIcon dollImage;
     int hairIndex;
     int skinIndex;
@@ -38,8 +38,7 @@ public class DollGUI extends JFrame implements ActionListener {
 
 
     public DollGUI(){
-        message = new JTextArea("Here is your doll's outfit!");
-        message.setEditable(false);
+        message = new JLabel("Here is your doll's outfit!");
         hairIndex = 0;
         skinIndex = 0;
         dollImage = new ImageIcon(dolls[0]);
@@ -63,8 +62,7 @@ public class DollGUI extends JFrame implements ActionListener {
         pnl1.setLayout(new BorderLayout());
         JPanel pnl2 = new JPanel();
         pnl2.setLayout(new BorderLayout());
-        pnl2.add(doll, BorderLayout.SOUTH);
-        pnl2.add(hair, BorderLayout.NORTH);
+        pnl2.add(doll);
         pnl.add(top, BorderLayout.NORTH);
         pnl.add(bottom, BorderLayout.CENTER);
         pnl.add(shoes, BorderLayout.SOUTH);
