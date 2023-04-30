@@ -83,7 +83,7 @@ public class ShirtGUI extends JFrame implements ActionListener {
 
     public ShirtGUI(User user){
         this.user = user;
-        System.out.println("user test");
+        System.out.println(user);
         setLayout(new GridLayout(4, 5));
 
         add(top1);
@@ -205,8 +205,10 @@ public class ShirtGUI extends JFrame implements ActionListener {
         }
 
         if (selectedTops.size() == 3) {
-            getUser();
-            finishTops(user, selectedTops);
+            user.insertTops(selectedTops);
+            BottomsGUI bottomsGUI = new BottomsGUI(user);
+            bottomsGUI.setVisible(true);
+            dispose();
         }
     
     }
@@ -223,8 +225,7 @@ public class ShirtGUI extends JFrame implements ActionListener {
         return selectedTops;
     }
 
-    public static void start(User user, Frame frame) {
-
+    public static void start(ShirtGUI sg) {
         try {
             MetalLookAndFeel.setCurrentTheme(new ourTheme());
             UIManager.setLookAndFeel(new MetalLookAndFeel());
@@ -233,11 +234,10 @@ public class ShirtGUI extends JFrame implements ActionListener {
             System.out.println("Look and Feel not set");
         }
 
-        String title = user.getName() + " Shirts Interface";
-
-        frame.setTitle(title);
-        frame.setSize(800, 600);
-        frame.setVisible(true);
+        ShirtGUI topsFrame = sg;
+        topsFrame.setTitle("Machine Dressing");
+        topsFrame.setSize(800, 600);
+        topsFrame.setVisible(true);
     }
 
 }

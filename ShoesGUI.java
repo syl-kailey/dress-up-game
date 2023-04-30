@@ -198,8 +198,14 @@ public class ShoesGUI extends JFrame implements ActionListener {
         }
 
         if (selectedShoes.size() == 3) {
-            getUser();
-            finishShoes(user, selectedShoes);
+            user.shoes = selectedShoes;
+            Server.setUsers(user);
+            
+            DollGUI dollFrame = new DollGUI();
+            dollFrame.start();
+
+            Server.finishSelection();
+            dispose();
         }
     
     }

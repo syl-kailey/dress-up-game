@@ -27,10 +27,11 @@ public class ClientHandler extends Thread {
             System.out.println(user2.getName());
 
             ShirtGUI shirtFrame1 = new ShirtGUI(user1);
-            shirtFrame1.start(user1, shirtFrame1);
+            shirtFrame1.start(shirtFrame1);
 
             ShirtGUI shirtFrame2 = new ShirtGUI(user2);
-            shirtFrame2.start(user2, shirtFrame2);
+            shirtFrame2.start(shirtFrame2);
+
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -8,9 +8,11 @@ public class Server {
     ServerSocket serverSocket;
     ArrayList<ClientHandler> clients = new ArrayList<>(); 
     ArrayList<String> usernames = new ArrayList<>();  
-    User user1 = new User("User1");
-    User user2 = new User("User2");
-    static User[] users = new User[2];
+    public static User[] users = new User[2];
+    static ArrayList<User> completeUsers = new ArrayList();
+    User user1 = new User("user1");
+    User user2 = new User("user2");
+    static int finishSelection;
 
     public Server (int port) {
 
@@ -29,14 +31,12 @@ public class Server {
     
     public void serve() {
 
+        boolean clientsReady = false;
+        finishSelection=0;
+        WaitingPageGUI waitingFrame = new WaitingPageGUI();
+        waitingFrame.start(waitingFrame);
 
         while(clients.size() < 2) {
-
-            WaitingPageGUI waitingFrame = new WaitingPageGUI();
-            waitingFrame.setTitle("Machine Dressing");
-            waitingFrame.setSize(500, 500);
-            waitingFrame.setVisible(true);
-
             try{
                 Socket clientSocket = serverSocket.accept();
                 clients.add(new ClientHandler(clientSocket)); 
@@ -49,33 +49,50 @@ public class Server {
             } catch (Exception e) {
                 System.out.println("error"); 
             }
-            waitingFrame.dispose();
         }
 
-        for (ClientHandler client : clients) {
-            client.start(user1, user2);
+        waitingFrame.dispose();
+        clientsReady=true;
+        WaitingPage2GUI waitingFrame2 = new WaitingPage2GUI();
+        if (clientsReady) {
+            
+            clients.get(0).start(user1, user2);
+            waitingFrame2.start(waitingFrame2);
         }
         
+        waitingFrame2.dispose();
+        DressUpGame.favoriteColor(completeUsers.get(0), completeUsers.get(1));
+        DressUpGame.favoritePattern(completeUsers.get(0), completeUsers.get(1));
+        DressUpGame.favoriteAesthetic(completeUsers.get(0), completeUsers.get(1));
+        DressUpGame.selectOutfit();
 
     }
-    
+
+    public static void setUsers(User user){
+        completeUsers.add(user);
+    }
+
+    public static void finishSelection(){
+        finishSelection++;
+        System.out.print(finishSelection + "players finished");
+    }
+
     public static void main(String args[]){
         DressUpGame.populateTops(); 
         DressUpGame.populateBottoms();
         DressUpGame.populateShoes();
-        
-        try {
-            MetalLookAndFeel.setCurrentTheme(new ourTheme());
-            UIManager.setLookAndFeel(new MetalLookAndFeel());
-        }
-        catch (Exception e) {
-            System.out.println("Look and Feel not set");
-        }
+        DressUpGame.populateOutfit();
         Server server = new Server(Integer.parseInt(args[0])); 
         server.serve();
 
+        /* 
         while ((users[0] != null) && (users[1] != null) && ((users[0].shoes == null) || (users[1].shoes == null))){
             
         }
+        DressUpGame.favoriteColor(users[0], users[1]);
+        DressUpGame.favoritePattern(users[0], users[1]);
+        DressUpGame.favoriteAesthetic(users[0], users[1]);
+        DressUpGame.selectOutfit();
+        */
     }
 }
