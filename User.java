@@ -20,10 +20,10 @@ public class User {
         tops = null;
         bottoms =null;
         shoes = null;
-        DressUpGame.populateTops();
-        DressUpGame.populateBottoms();
-        DressUpGame.populateShoes();
-        DressUpGame.populateOutfit();
+        colors = new ArrayList<String>();
+        patterns = new ArrayList<String>();
+        aesthetics = new ArrayList<String>();
+        this.allOutfits = DressUpGame.allOutfits;
     }
 
     public String getName(){
@@ -37,6 +37,9 @@ public class User {
         this.bottoms = bottoms;
         this.shoes = shoes;
         this.allOutfits = allOutfits;
+        colors = new ArrayList<String>();
+        patterns = new ArrayList<String>();
+        aesthetics = new ArrayList<String>();
     }
 
     public void insertTops(ArrayList<Top> tops){

@@ -21,7 +21,6 @@ public class DressUpGame {
     static List<Outfit> patternOutfits= new ArrayList<>();
     static List<Outfit> colorOutfits;
     static List<Outfit> aestheticOutfits;
-    static Boolean outfitSelected = false;
 
     public void displayOutfit(User user1, User user2){
         
@@ -29,8 +28,8 @@ public class DressUpGame {
         favoritePattern(user1, user2);
         favoriteAesthetic(user1, user2);
         Outfit outfit = selectOutfit();
-        DollGUI outfitFrame = new DollGUI(outfit);
-        outfitFrame.start(outfit, outfitFrame);
+        DollGUI outfitFrame = new DollGUI();
+        outfitFrame.start();
 
 
     }
@@ -47,9 +46,10 @@ public class DressUpGame {
 
 
     
-    public void favoriteColor(User user1, User user2){
+    public static void favoriteColor(User user1, User user2){
         List<String> colors1 = user1.preferredColors();
         List<String> colors2 = user2.preferredColors();
+        colors = new ArrayList<String>();
         
         //look through user1's list and compare with user2's list
         //if anything matches, that is the only item in the list
@@ -67,9 +67,10 @@ public class DressUpGame {
         }
     }
 
-    public void favoritePattern(User user1, User user2){
+    public static void favoritePattern(User user1, User user2){
         List<String> patterns1 = user1.preferredPatterns();
         List<String> patterns2 = user2.preferredPatterns();
+        patterns = new ArrayList<String>();
         
         //look through user1's list and compare with user2's list
         //if anything matches, that is the only item in the list
@@ -87,9 +88,10 @@ public class DressUpGame {
         }
     }
 
-    public void favoriteAesthetic(User user1, User user2){
+    public static void favoriteAesthetic(User user1, User user2){
         List<String> aes1 = user1.preferredAesthetics();
         List<String> aes2 = user2.preferredAesthetics();
+        aesthetics = new ArrayList<String>();
         
         //look through user1's list and compare with user2's list
         //if anything matches, that is the only item in the list
@@ -207,7 +209,9 @@ public class DressUpGame {
 
 
     public static Outfit selectOutfit(){//i removed parameters because theyre already global variables
-
+        colorOutfits = new ArrayList<Outfit>();
+        patternOutfits = new ArrayList<Outfit>();
+        aestheticOutfits = new ArrayList<Outfit>();
         //if length of colors is 1
             //find outfits with that color
             //colorOutfits
@@ -266,7 +270,7 @@ public class DressUpGame {
             //if length of list is one
             //that outfit is finalOutfit
 
-        List<Outfit> potentialOutfits = null;
+        List<Outfit> potentialOutfits = new ArrayList<Outfit>();
         for (Outfit o : colorOutfits){
             if (aestheticOutfits.contains(o) && patternOutfits.contains(o)){
                 finalOutfit = o;
@@ -288,7 +292,6 @@ public class DressUpGame {
             potentialOutfits.add(aestheticOutfits.get(0));
         }
         finalOutfit = potentialOutfits.get((int)(Math.random()*potentialOutfits.size()));//again, should probably check my math
-        outfitSelected = true;
         return finalOutfit ;
     }
 
