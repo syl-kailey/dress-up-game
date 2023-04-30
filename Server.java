@@ -30,13 +30,11 @@ public class Server {
     
     public void serve() {
 
+        boolean clientsReady = false;
         WaitingPageGUI waitingFrame = new WaitingPageGUI();
-        waitingFrame.setTitle("Machine Dressing");
-        waitingFrame.setSize(500, 500);
-        waitingFrame.setVisible(true);
+        waitingFrame.start(waitingFrame);
 
-        //while(clients.size() < 2) {
-        while(clients.size()<2) {
+        while(clients.size() < 2) {
             try{
                 Socket clientSocket = serverSocket.accept();
                 clients.add(new ClientHandler(clientSocket)); 
@@ -49,48 +47,27 @@ public class Server {
             } catch (Exception e) {
                 System.out.println("error"); 
             }
-            waitingFrame.dispose();
+        }
+
+        waitingFrame.dispose();
+        clientsReady=true;
+        WaitingPage2GUI waitingFrame2 = new WaitingPage2GUI();
+        if (clientsReady) {
+            
+            clients.get(0).start(user1, user2);
+            waitingFrame2.start(waitingFrame2);
         }
         
         while (completeUsers.size()<2){
-            System.out.print(1);
+            
         }
+
+        waitingFrame2.dispose();
+
         DressUpGame.favoriteColor(completeUsers.get(0), completeUsers.get(1));
         DressUpGame.favoritePattern(completeUsers.get(0), completeUsers.get(1));
         DressUpGame.favoriteAesthetic(completeUsers.get(0), completeUsers.get(1));
         DressUpGame.selectOutfit();
-    }
-
-    private class ClientHandler extends Thread {
-        Socket socket;
-        //String name;
-        public ClientHandler (Socket socket) {
-        //public ClientHandler (Socket socket, String username) {
-            this.socket = socket; 
-            //this.name = username; 
-        }
- 
-        public synchronized void run() {
-            ArrayList<Top> list1 = new ArrayList<>(); 
-            ArrayList<Bottom> list2 = new ArrayList<>();
-            ArrayList<Shoes> list3 = new ArrayList<>(); 
-
-            int thisUser = clients.size()-1;//will be 0 or 1
-
-            while (clients.size() < 2){
-                //should add some kinda waiting screen
-                System.out.print("waiting");
-            }
-
-            ShirtGUI shirtGUI = new ShirtGUI(users[thisUser]);
-            shirtGUI.start(shirtGUI);
-            
-            while (DressUpGame.finalOutfit == null){
-                System.out.print(2);
-            }
-            DollGUI dollGUI = new DollGUI();
-            dollGUI.start();
-        }
     }
 
     public static void setUsers(User user){

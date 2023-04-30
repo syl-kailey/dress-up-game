@@ -31,4 +31,19 @@ public class WaitingPageGUI extends JFrame{
         this.getContentPane().add(panel);
         this.pack();
     }
+
+    public static void start(WaitingPageGUI frame) {
+        
+        try {
+            MetalLookAndFeel.setCurrentTheme(new ourTheme());
+            UIManager.setLookAndFeel(new MetalLookAndFeel());
+        }
+        catch (Exception e) {
+            System.out.println("Look and Feel not set");
+        }
+
+        frame.setTitle("Machine Dressing");
+        frame.setSize(500, 500);
+        frame.setVisible(true);
+    }
 }
