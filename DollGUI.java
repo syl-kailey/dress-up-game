@@ -40,12 +40,13 @@ public class DollGUI extends JFrame implements ActionListener {
     JButton changeHair = new JButton("Hairstyle");
     JButton changeSkin = new JButton("Skintone");
     JButton changeColor = new JButton("Background");
-    DollGUI dgui;
 
 
 
     public DollGUI(){
         populateColors();
+        populateHairstyles();
+        populateDolls();
         message = new JTextArea("Here is your doll's outfit!");
         message.setEditable(false);
         hairIndex = 0;
@@ -102,10 +103,8 @@ public class DollGUI extends JFrame implements ActionListener {
         this.setSize(250,250);
         this.add(message, BorderLayout.NORTH);
         //this.getContentPane().setBackground(Color.PINK);
-        this.getContentPane().setBackground(Color.decode("#D49066"));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
-        dgui = this;
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -118,6 +117,8 @@ public class DollGUI extends JFrame implements ActionListener {
                 hairIndex+=1;
             }
             hairImage = new ImageIcon(hairstyles[hairIndex]).getImage().getScaledInstance(350, 222, java.awt.Image.SCALE_SMOOTH);
+            //hair = new JLabel(new ImageIcon(hairImage));
+            hair.setIcon(new ImageIcon(hairImage));
         } else if (button == changeSkin) {
             if (skinIndex == 3){
                 skinIndex = 0;
@@ -125,6 +126,8 @@ public class DollGUI extends JFrame implements ActionListener {
                 skinIndex+=1;
             }
             dollImage = new ImageIcon(dolls[skinIndex]).getImage().getScaledInstance(350, 222, java.awt.Image.SCALE_SMOOTH);
+            //doll = new JLabel(new ImageIcon(dollImage));
+            doll.setIcon(new ImageIcon(dollImage));
         }else if (button == changeColor) {
             if (colorIndex == 4){
                 colorIndex = 0;
@@ -148,16 +151,11 @@ public class DollGUI extends JFrame implements ActionListener {
         catch (Exception e) {
             System.out.println("Look and Feel not set");
         }
-
-        System.out.println("i exist");
-        System.out.println(DressUpGame.finalOutfit);
         DollGUI dollFrame = new DollGUI();
         dollFrame.setTitle("Machine Dressing");
         dollFrame.setSize(800, 600);
         dollFrame.setVisible(true);
         //JLabel top = new JLabel(new ImageIcon(DressUpGame.finalOutfit.top.getImageURL()));
-        System.out.println(doll);
-        System.out.println(hair);
     }
 
     public void populateHairstyles(){
