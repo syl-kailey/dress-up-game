@@ -44,6 +44,8 @@ public class DollGUI extends JFrame implements ActionListener {
         skinIndex = 0;
         dollImage = new ImageIcon(dolls[0]);
         hairImage = new ImageIcon(hairstyles[0]);
+        doll = new JLabel(dollImage);
+        hair = new JLabel(hairImage);
 
         /* 
         JLayeredPane pnl  = new JLayeredPane();
