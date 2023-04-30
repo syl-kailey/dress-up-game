@@ -32,6 +32,7 @@ public class ClientHandler extends Thread {
             ShirtGUI shirtFrame2 = new ShirtGUI(user2);
             shirtFrame2.start(shirtFrame2);
 
+
         } catch (Exception e) {
             e.printStackTrace();
         }

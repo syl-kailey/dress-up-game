@@ -12,6 +12,7 @@ public class Server {
     static ArrayList<User> completeUsers = new ArrayList();
     User user1 = new User("user1");
     User user2 = new User("user2");
+    static int finishSelection;
 
     public Server (int port) {
 
@@ -31,6 +32,7 @@ public class Server {
     public void serve() {
 
         boolean clientsReady = false;
+        finishSelection=0;
         WaitingPageGUI waitingFrame = new WaitingPageGUI();
         waitingFrame.start(waitingFrame);
 
@@ -58,20 +60,21 @@ public class Server {
             waitingFrame2.start(waitingFrame2);
         }
         
-        while (completeUsers.size()<2){
-            
-        }
-
         waitingFrame2.dispose();
-
         DressUpGame.favoriteColor(completeUsers.get(0), completeUsers.get(1));
         DressUpGame.favoritePattern(completeUsers.get(0), completeUsers.get(1));
         DressUpGame.favoriteAesthetic(completeUsers.get(0), completeUsers.get(1));
         DressUpGame.selectOutfit();
+
     }
 
     public static void setUsers(User user){
         completeUsers.add(user);
+    }
+
+    public static void finishSelection(){
+        finishSelection++;
+        System.out.print(finishSelection + "players finished");
     }
 
     public static void main(String args[]){
