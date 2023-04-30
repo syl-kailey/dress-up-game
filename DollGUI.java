@@ -23,11 +23,18 @@ public class DollGUI extends JFrame implements ActionListener {
     JLabel doll = new JLabel(dollImage);
     ImageIcon hairImage;
     JLabel hair = new JLabel(hairImage);
-    JLabel top = new JLabel(new ImageIcon(DressUpGame.finalOutfit.top.getImageURL()));
-    JLabel bottom = new JLabel(new ImageIcon(DressUpGame.finalOutfit.bottom.getImageURL()));
-    JLabel shoes = new JLabel(new ImageIcon(DressUpGame.finalOutfit.shoes.getImageURL()));
+    ImageIcon topImgIcon = new ImageIcon(DressUpGame.finalOutfit.top.getImageURL());
+    Image topImg = topImgIcon.getImage().getScaledInstance(350, 222, java.awt.Image.SCALE_SMOOTH);
+    JLabel top = new JLabel(new ImageIcon(topImg));
+    ImageIcon bottomImgIcon = new ImageIcon(DressUpGame.finalOutfit.bottom.getImageURL());
+    Image bottomImg = bottomImgIcon.getImage().getScaledInstance(350, 222, java.awt.Image.SCALE_SMOOTH);
+    JLabel bottom = new JLabel(new ImageIcon(bottomImg));
+    ImageIcon shoesImgIcon = new ImageIcon(DressUpGame.finalOutfit.shoes.getImageURL());
+    Image shoesImg = shoesImgIcon.getImage().getScaledInstance(350, 222, java.awt.Image.SCALE_SMOOTH);
+    JLabel shoes = new JLabel(new ImageIcon(shoesImg));
     JButton changeHair = new JButton("Hairstyle");
     JButton changeSkin = new JButton("Skintone");
+
 
 
     public DollGUI(){
@@ -37,21 +44,39 @@ public class DollGUI extends JFrame implements ActionListener {
         skinIndex = 0;
         dollImage = new ImageIcon(dolls[0]);
         hairImage = new ImageIcon(hairstyles[0]);
-        
-        JPanel pnl  = new JPanel();
+
+        /* 
+        JLayeredPane pnl  = new JLayeredPane();
         pnl.setLayout(new BorderLayout());
         pnl.add(doll, BorderLayout.CENTER);
         pnl.add(hair, BorderLayout.CENTER);
         pnl.add(top, BorderLayout.CENTER);
         pnl.add(bottom, BorderLayout.CENTER);
         pnl.add(shoes, BorderLayout.CENTER);
-        pnl.setBackground(Color.BLUE);
         this.add(pnl, BorderLayout.SOUTH);
+        */
+        JPanel pnl  = new JPanel();
+        pnl.setLayout(new GridLayout(3, 1));
+        JPanel pnl1 = new JPanel();
+        pnl1.setLayout(new BorderLayout());
+        JPanel pnl2 = new JPanel();
+        pnl2.setLayout(new BorderLayout());
+        pnl2.add(doll, BorderLayout.SOUTH);
+        pnl2.add(hair, BorderLayout.NORTH);
+        pnl.add(top, BorderLayout.NORTH);
+        pnl.add(bottom, BorderLayout.CENTER);
+        pnl.add(shoes, BorderLayout.SOUTH);
+        pnl1.add(pnl, BorderLayout.EAST);
+        pnl1.add(pnl2, BorderLayout.WEST);
+        this.add(pnl1);
+        pnl.setOpaque(false);
+        pnl1.setOpaque(false);
+        pnl2.setOpaque(false);
 
         JPanel buttonspnl = new JPanel();
         buttonspnl.add(changeHair, BorderLayout.NORTH);
         buttonspnl.add(changeSkin, BorderLayout.SOUTH);
-        this.add(buttonspnl, BorderLayout.NORTH);
+        this.add(buttonspnl, BorderLayout.WEST);
 
 
         changeHair.addActionListener(this);
@@ -61,7 +86,7 @@ public class DollGUI extends JFrame implements ActionListener {
     
         this.setSize(250,250);
         this.add(message, BorderLayout.NORTH);
-        this.getContentPane().setBackground(Color.BLUE);
+        //this.getContentPane().setBackground(Color.BLUE);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
     }
@@ -105,8 +130,8 @@ public class DollGUI extends JFrame implements ActionListener {
         dollFrame.setSize(800, 600);
         dollFrame.setVisible(true);
         //JLabel top = new JLabel(new ImageIcon(DressUpGame.finalOutfit.top.getImageURL()));
-        System.out.println(DressUpGame.finalOutfit.top.getImageURL());
-        System.out.println(top);
+        System.out.println(doll);
+        System.out.println(hair);
     }
 
     public void populateHairstyles(){
