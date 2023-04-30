@@ -3,6 +3,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import java.awt.BorderLayout;
 import java.awt.event.*;
+import java.awt.Color;
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
@@ -15,14 +16,18 @@ public class DollGUI extends JFrame implements ActionListener {
 //implements ActionListener 
     String[] hairstyles = new String[12];
     String[] dolls = new String[4];
+    //String[] colors = new String[5];
+    //Color[] colors = new Color[5];
+    String[] colors = new String[5];
 
     JTextArea message; 
-    ImageIcon dollImage;
+    Image dollImage;
     int hairIndex;
     int skinIndex;
-    JLabel doll = new JLabel(dollImage);
-    ImageIcon hairImage;
-    JLabel hair = new JLabel(hairImage);
+    int colorIndex;
+    JLabel doll;
+    Image hairImage;
+    JLabel hair;
     ImageIcon topImgIcon = new ImageIcon(DressUpGame.finalOutfit.top.getImageURL());
     Image topImg = topImgIcon.getImage().getScaledInstance(350, 222, java.awt.Image.SCALE_SMOOTH);
     JLabel top = new JLabel(new ImageIcon(topImg));
@@ -34,18 +39,22 @@ public class DollGUI extends JFrame implements ActionListener {
     JLabel shoes = new JLabel(new ImageIcon(shoesImg));
     JButton changeHair = new JButton("Hairstyle");
     JButton changeSkin = new JButton("Skintone");
+    JButton changeColor = new JButton("Background");
+    DollGUI dgui;
 
 
 
     public DollGUI(){
+        populateColors();
         message = new JTextArea("Here is your doll's outfit!");
         message.setEditable(false);
         hairIndex = 0;
         skinIndex = 0;
-        dollImage = new ImageIcon(dolls[0]);
-        hairImage = new ImageIcon(hairstyles[0]);
-        doll = new JLabel(dollImage);
-        hair = new JLabel(hairImage);
+        colorIndex = 0;
+        dollImage = new ImageIcon(dolls[0]).getImage().getScaledInstance(350, 222, java.awt.Image.SCALE_SMOOTH);
+        hairImage = new ImageIcon(hairstyles[0]).getImage().getScaledInstance(350, 222, java.awt.Image.SCALE_SMOOTH);
+        doll = new JLabel(new ImageIcon(dollImage));
+        hair = new JLabel(new ImageIcon(hairImage));
 
         /* 
         JLayeredPane pnl  = new JLayeredPane();
@@ -70,13 +79,15 @@ public class DollGUI extends JFrame implements ActionListener {
         pnl.add(shoes, BorderLayout.SOUTH);
         pnl1.add(pnl, BorderLayout.EAST);
         pnl1.add(pnl2, BorderLayout.WEST);
-        this.add(pnl1);
         pnl.setOpaque(false);
         pnl1.setOpaque(false);
         pnl2.setOpaque(false);
+        this.add(pnl1);
 
         JPanel buttonspnl = new JPanel();
+        buttonspnl.setLayout(new BorderLayout());
         buttonspnl.add(changeHair, BorderLayout.NORTH);
+        buttonspnl.add(changeColor, BorderLayout.CENTER);
         buttonspnl.add(changeSkin, BorderLayout.SOUTH);
         this.add(buttonspnl, BorderLayout.WEST);
 
@@ -85,12 +96,16 @@ public class DollGUI extends JFrame implements ActionListener {
         changeHair.setForeground(Color.decode("#D49066"));
         changeSkin.setForeground(Color.decode("#D49066"));
         changeSkin.addActionListener(this);
+        changeColor.setForeground(Color.decode("#D49066"));
+        changeColor.addActionListener(this);
     
         this.setSize(250,250);
         this.add(message, BorderLayout.NORTH);
-        //this.getContentPane().setBackground(Color.BLUE);
+        //this.getContentPane().setBackground(Color.PINK);
+        this.getContentPane().setBackground(Color.decode("#D49066"));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
+        dgui = this;
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -102,14 +117,22 @@ public class DollGUI extends JFrame implements ActionListener {
             }else{
                 hairIndex+=1;
             }
-            hairImage = new ImageIcon(hairstyles[hairIndex]);
+            hairImage = new ImageIcon(hairstyles[hairIndex]).getImage().getScaledInstance(350, 222, java.awt.Image.SCALE_SMOOTH);
         } else if (button == changeSkin) {
             if (skinIndex == 3){
                 skinIndex = 0;
             }else{
                 skinIndex+=1;
             }
-            dollImage = new ImageIcon(dolls[skinIndex]);
+            dollImage = new ImageIcon(dolls[skinIndex]).getImage().getScaledInstance(350, 222, java.awt.Image.SCALE_SMOOTH);
+        }else if (button == changeColor) {
+            if (colorIndex == 4){
+                colorIndex = 0;
+            }else{
+                colorIndex+=1;
+            }
+            this.getContentPane().setBackground(Color.decode(colors[colorIndex]));
+            //dgui.getContentPane().setBackground(colors[colorIndex]);
         }
 
     }
@@ -117,6 +140,7 @@ public class DollGUI extends JFrame implements ActionListener {
     public void start(){
         populateHairstyles();
         populateDolls();
+        populateColors();
         try {
             MetalLookAndFeel.setCurrentTheme(new ourTheme());
             UIManager.setLookAndFeel(new MetalLookAndFeel());
@@ -150,6 +174,25 @@ public class DollGUI extends JFrame implements ActionListener {
         hairstyles[10] = "./allpngs/Hair11.png";
         hairstyles[11] = "./allpngs/Hair12.png";
     }
+
+    public void populateColors(){
+        //colors[0] = "#FCF6BD";
+        colors[0] = "#D49066";
+        colors[1] = "#C6D8FF";
+        colors[2] = "#FFABC3";
+        colors[3] = "#D0A6E2";
+        colors[4] = "#6E68BD";
+    }
+
+    /* 
+    public void populateColors(){
+        colors[0] = Color.PINK;
+        colors[1] = Color.WHITE;
+        colors[2] = Color.YELLOW;
+        colors[3] = Color.MAGENTA;
+        colors[4] = Color.ORANGE;
+    }
+    */
 
     public void populateDolls(){
         dolls[0] = "./allpngs/Doll1.png";
