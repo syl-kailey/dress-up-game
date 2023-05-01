@@ -72,17 +72,25 @@ public class Server {
 
             int thisUser = clients.size()-1;//will be 0 or 1
 
+            WaitingPageGUI wp = new WaitingPageGUI();
             while (clients.size() < 2){
                 //should add some kinda waiting screen
-                System.out.print("waiting");
+                System.out.print("waiting");   
+                wp.start(wp);
             }
+            wp.dispose();
 
             ShirtGUI shirtGUI = new ShirtGUI(users[thisUser]);
             shirtGUI.start(shirtGUI);
             
+            WaitingPage2GUI wp2 = new WaitingPage2GUI();
             while (DressUpGame.finalOutfit == null){
                 System.out.print(2);
+                if (completeUsers.contains(users[thisUser])){
+                    wp2.start(wp2);
+                }
             }
+            wp2.dispose();
             DollGUI dollGUI = new DollGUI();
             dollGUI.start();
         }

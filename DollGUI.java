@@ -20,7 +20,6 @@ public class DollGUI extends JFrame implements ActionListener {
     //Color[] colors = new Color[5];
     String[] colors = new String[5];
 
-
     JTextArea message; 
     Image dollImage;
     int hairIndex;
@@ -74,7 +73,8 @@ public class DollGUI extends JFrame implements ActionListener {
         pnl1.setLayout(new BorderLayout());
         JPanel pnl2 = new JPanel();
         pnl2.setLayout(new BorderLayout());
-        pnl2.add(doll);
+        pnl2.add(doll, BorderLayout.SOUTH);
+        pnl2.add(hair, BorderLayout.NORTH);
         pnl.add(top, BorderLayout.NORTH);
         pnl.add(bottom, BorderLayout.CENTER);
         pnl.add(shoes, BorderLayout.SOUTH);
